@@ -4,10 +4,15 @@ config/*_connection.json
 config/.env
 *.env
 
-# Logs
+# Logs and temporary files
 *.log
 logs/
+dbt/logs/
+dbt/*/logs/
 errors.log
+*.tmp
+*~
+*.bak
 
 # Data files (comment out if you want to commit sample data)
 # data/*.csv
@@ -22,6 +27,7 @@ __pycache__/
 env/
 venv/
 .venv/
+relativity-demo/
 
 # dbt
 dbt/logs/
