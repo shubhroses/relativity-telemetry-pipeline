@@ -24,26 +24,48 @@ This project simulates a rocket engine telemetry data pipeline that:
 ```
 relativity-telemetry-pipeline/
 ├── README.md
-├── python/                    # Python scripts for data generation and cleaning
-├── dbt/                      # dbt project for data transformation
-├── airbyte/                  # Airbyte connector configurations
-├── data/                     # Generated data files and outputs
-└── sql/                      # Standalone SQL queries and analysis
+├── requirements.txt              # Python dependencies
+├── .gitignore                   # Protect sensitive data
+├── python/                      # Python scripts for data generation and cleaning
+│   ├── generate_telemetry.py   # Synthetic data generator with anomalies
+│   ├── ingest_and_clean.py     # Data validation and cleaning pipeline
+│   └── test_redshift_connection.py  # Redshift connection tester
+├── config/                      # Configuration files
+│   └── redshift_connection_template.json  # Template for DB credentials
+├── docs/                        # Documentation
+│   └── redshift_setup_guide.md  # Step-by-step AWS setup guide
+├── dbt/                         # dbt project for data transformation
+├── airbyte/                     # Airbyte connector configurations
+├── data/                        # Generated data files and outputs
+└── sql/                         # Standalone SQL queries and analysis
 ```
 
 ## Quick Start
 
-1. **Generate telemetry data**: `python python/generate_telemetry.py`
-2. **Clean and validate**: `python python/ingest_and_clean.py`
-3. **Load to Redshift**: Configure and run Airbyte sync
-4. **Transform with dbt**: `dbt run && dbt test`
-5. **Analyze data**: Execute SQL queries in `sql/` directory
+### Prerequisites
+```bash
+# Install Python dependencies
+pip install -r requirements.txt
+```
+
+### Setup Process
+
+1. **Set up AWS Redshift**: Follow guide in `docs/redshift_setup_guide.md`
+2. **Configure connection**: Copy `config/redshift_connection_template.json` to `config/redshift_connection.json` and fill in your details
+3. **Test connection**: `python python/test_redshift_connection.py`
+4. **Generate telemetry data**: `python python/generate_telemetry.py`
+5. **Clean and validate**: `python python/ingest_and_clean.py`
+6. **Load to Redshift**: Configure and run Airbyte sync
+7. **Transform with dbt**: `dbt run && dbt test`
+8. **Analyze data**: Execute SQL queries in `sql/` directory
 
 ## Data Model
 
 **Star Schema:**
 - `dim_engine`: Engine dimension table
 - `fact_telemetry`: Main fact table with telemetry readings
+
+**Database**: AWS Redshift Serverless (`dev` database)
 
 **Key Metrics:**
 - Chamber pressure
