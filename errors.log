@@ -1,0 +1,53 @@
+2025-06-30 11:22:51,519 - INFO - Starting telemetry data processing...
+2025-06-30 11:22:51,519 - INFO - Output file: /tmp/telemetry_clean.csv
+2025-06-30 11:22:52,118 - INFO - Successfully wrote 50 records to /tmp/telemetry_clean.csv
+2025-06-30 11:22:52,119 - INFO - ==================================================
+2025-06-30 11:22:52,119 - INFO - PROCESSING SUMMARY
+2025-06-30 11:22:52,119 - INFO - ==================================================
+2025-06-30 11:22:52,119 - INFO - Total records processed: 50
+2025-06-30 11:22:52,119 - INFO - Valid records: 50
+2025-06-30 11:22:52,119 - INFO - Dropped records: 0
+2025-06-30 11:22:52,119 - INFO - Corrected records: 0
+2025-06-30 11:22:52,119 - INFO - Parsing errors: 0
+2025-06-30 11:22:52,119 - INFO - Success rate: 100.0%
+2025-06-30 11:23:59,490 - INFO - Starting telemetry data processing...
+2025-06-30 11:23:59,490 - INFO - Output file: /tmp/telemetry_clean.csv
+2025-06-30 11:24:01,634 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 11:24:01,635 - WARNING - Corrected negative pressure: -20.4198708639705 → 20.4198708639705
+2025-06-30 11:24:01,636 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 11:24:01,919 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 11:24:01,919 - WARNING - Corrected negative pressure: -40.96738767395943 → 40.96738767395943
+2025-06-30 11:24:01,930 - INFO - Successfully wrote 200 records to /tmp/telemetry_clean.csv
+2025-06-30 11:24:01,931 - INFO - ==================================================
+2025-06-30 11:24:01,931 - INFO - PROCESSING SUMMARY
+2025-06-30 11:24:01,931 - INFO - ==================================================
+2025-06-30 11:24:01,931 - INFO - Total records processed: 200
+2025-06-30 11:24:01,931 - INFO - Valid records: 200
+2025-06-30 11:24:01,931 - INFO - Dropped records: 0
+2025-06-30 11:24:01,931 - INFO - Corrected records: 5
+2025-06-30 11:24:01,931 - INFO - Parsing errors: 0
+2025-06-30 11:24:01,931 - INFO - Success rate: 100.0%
+2025-06-30 11:30:00,198 - INFO - Starting telemetry data processing...
+2025-06-30 11:30:00,198 - INFO - Output file: data/telemetry_clean.csv
+2025-06-30 11:30:00,429 - INFO - Successfully wrote 20 records to data/telemetry_clean.csv
+2025-06-30 11:30:00,430 - INFO - ==================================================
+2025-06-30 11:30:00,430 - INFO - PROCESSING SUMMARY
+2025-06-30 11:30:00,430 - INFO - ==================================================
+2025-06-30 11:30:00,430 - INFO - Total records processed: 20
+2025-06-30 11:30:00,430 - INFO - Valid records: 20
+2025-06-30 11:30:00,430 - INFO - Dropped records: 0
+2025-06-30 11:30:00,430 - INFO - Corrected records: 0
+2025-06-30 11:30:00,430 - INFO - Parsing errors: 0
+2025-06-30 11:30:00,430 - INFO - Success rate: 100.0%
+2025-06-30 11:31:59,855 - INFO - Starting telemetry data processing...
+2025-06-30 11:31:59,856 - INFO - Output file: data/telemetry_clean.csv
+2025-06-30 11:32:00,019 - INFO - Successfully wrote 15 records to data/telemetry_clean.csv
+2025-06-30 11:32:00,019 - INFO - ==================================================
+2025-06-30 11:32:00,019 - INFO - PROCESSING SUMMARY
+2025-06-30 11:32:00,019 - INFO - ==================================================
+2025-06-30 11:32:00,019 - INFO - Total records processed: 15
+2025-06-30 11:32:00,019 - INFO - Valid records: 15
+2025-06-30 11:32:00,019 - INFO - Dropped records: 0
+2025-06-30 11:32:00,019 - INFO - Corrected records: 0
+2025-06-30 11:32:00,019 - INFO - Parsing errors: 0
+2025-06-30 11:32:00,019 - INFO - Success rate: 100.0%

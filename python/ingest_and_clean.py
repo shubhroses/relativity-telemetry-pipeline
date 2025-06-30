@@ -20,7 +20,7 @@ from pathlib import Path
 
 
 class TelemetryProcessor:
-    def __init__(self, output_file: str = "/tmp/telemetry_clean.csv"):
+    def __init__(self, output_file: str = "data/telemetry_clean.csv"):
         self.output_file = output_file
         self.required_fields = ["timestamp", "engine_id"]
         self.numeric_fields = ["chamber_pressure", "fuel_flow", "temperature"]
@@ -214,8 +214,8 @@ def main():
     parser.add_argument(
         "-o", "--output", 
         type=str, 
-        default="/tmp/telemetry_clean.csv",
-        help="Output CSV file (default: /tmp/telemetry_clean.csv)"
+        default="data/telemetry_clean.csv",
+        help="Output CSV file (default: data/telemetry_clean.csv)"
     )
     
     args = parser.parse_args()

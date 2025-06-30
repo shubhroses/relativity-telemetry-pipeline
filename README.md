@@ -27,6 +27,7 @@ relativity-telemetry-pipeline/
 ├── python/                    # Python scripts for data generation and cleaning
 ├── dbt/                      # dbt project for data transformation
 ├── airbyte/                  # Airbyte connector configurations
+├── data/                     # Generated data files and outputs
 └── sql/                      # Standalone SQL queries and analysis
 ```
 
