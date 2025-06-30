@@ -109,3 +109,65 @@
 2025-06-30 14:10:50,083 - INFO - Corrected records: 18
 2025-06-30 14:10:50,083 - INFO - Parsing errors: 0
 2025-06-30 14:10:50,083 - INFO - Success rate: 100.0%
+2025-06-30 15:39:10,365 - INFO - Starting telemetry data processing...
+2025-06-30 15:39:10,365 - INFO - Output file: data/telemetry_production.csv
+2025-06-30 15:39:12,491 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:39:12,493 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:39:13,904 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:39:13,905 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:39:15,385 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:39:15,385 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:39:16,823 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:39:16,823 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:39:16,824 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:39:16,825 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:39:19,736 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:39:19,737 - WARNING - Corrected negative pressure: -3.4554365708012114 → 3.4554365708012114
+2025-06-30 15:39:19,737 - WARNING - Corrected negative pressure: -31.772083054109206 → 31.772083054109206
+2025-06-30 15:39:19,737 - WARNING - Extremely high temperature detected: 7017.924523546336
+2025-06-30 15:39:22,646 - WARNING - Corrected negative pressure: -17.56728257649197 → 17.56728257649197
+2025-06-30 15:39:22,649 - WARNING - Corrected negative pressure: -37.82936172529651 → 37.82936172529651
+2025-06-30 15:39:22,649 - WARNING - Corrected negative pressure: -23.64752780979614 → 23.64752780979614
+2025-06-30 15:39:22,677 - INFO - Successfully wrote 1000 records to data/telemetry_production.csv
+2025-06-30 15:39:22,677 - INFO - ==================================================
+2025-06-30 15:39:22,677 - INFO - PROCESSING SUMMARY
+2025-06-30 15:39:22,677 - INFO - ==================================================
+2025-06-30 15:39:22,677 - INFO - Total records processed: 1000
+2025-06-30 15:39:22,677 - INFO - Valid records: 1000
+2025-06-30 15:39:22,677 - INFO - Dropped records: 0
+2025-06-30 15:39:22,678 - INFO - Corrected records: 16
+2025-06-30 15:39:22,678 - INFO - Parsing errors: 0
+2025-06-30 15:39:22,678 - INFO - Success rate: 100.0%
+2025-06-30 15:42:59,907 - INFO - Starting telemetry data processing...
+2025-06-30 15:42:59,907 - INFO - Output file: data/telemetry_production.csv
+2025-06-30 15:43:02,039 - WARNING - Corrected negative pressure: -38.66119957310888 → 38.66119957310888
+2025-06-30 15:43:02,041 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:43:03,504 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:43:03,506 - WARNING - Extremely high temperature detected: 6269.42190645771
+2025-06-30 15:43:03,506 - WARNING - Corrected negative pressure: -20.728515521805708 → 20.728515521805708
+2025-06-30 15:43:04,960 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:43:04,961 - WARNING - Corrected negative pressure: -16.422307725273825 → 16.422307725273825
+2025-06-30 15:43:04,962 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:43:06,386 - WARNING - Corrected negative pressure: -11.064959310699535 → 11.064959310699535
+2025-06-30 15:43:06,387 - WARNING - Corrected negative pressure: -48.369809908991186 → 48.369809908991186
+2025-06-30 15:43:07,821 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:43:07,821 - WARNING - Corrected negative pressure: -30.023640842675686 → 30.023640842675686
+2025-06-30 15:43:07,822 - WARNING - Corrected negative pressure: -21.79709449071528 → 21.79709449071528
+2025-06-30 15:43:09,283 - WARNING - Corrected negative pressure: -31.34410657544632 → 31.34410657544632
+2025-06-30 15:43:09,284 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:43:10,721 - WARNING - Extremely high temperature detected: 7129.6992050177405
+2025-06-30 15:43:10,722 - WARNING - Corrected negative pressure: -49.839362632218695 → 49.839362632218695
+2025-06-30 15:43:10,722 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:43:12,163 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:43:12,163 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:43:12,164 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 15:43:12,205 - INFO - Successfully wrote 1000 records to data/telemetry_production.csv
+2025-06-30 15:43:12,205 - INFO - ==================================================
+2025-06-30 15:43:12,205 - INFO - PROCESSING SUMMARY
+2025-06-30 15:43:12,205 - INFO - ==================================================
+2025-06-30 15:43:12,206 - INFO - Total records processed: 1000
+2025-06-30 15:43:12,206 - INFO - Valid records: 1000
+2025-06-30 15:43:12,206 - INFO - Dropped records: 0
+2025-06-30 15:43:12,206 - INFO - Corrected records: 19
+2025-06-30 15:43:12,206 - INFO - Parsing errors: 0
+2025-06-30 15:43:12,206 - INFO - Success rate: 100.0%
