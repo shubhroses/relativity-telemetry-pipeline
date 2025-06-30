@@ -42,6 +42,10 @@ fact_data AS (
         -- Degenerate dimensions
         s._airbyte_raw_id AS airbyte_raw_id,
         
+        -- Add reading timestamp for temporal analysis
+        s.reading_timestamp,
+        s.engine_id,
+        
         -- Facts/measures
         s.chamber_pressure_psi,
         s.fuel_flow_kg_per_sec,
@@ -52,6 +56,15 @@ fact_data AS (
         -- Data quality flags
         s.is_anomaly,
         s.anomaly_type,
+        
+        -- Health status classification
+        CASE 
+            WHEN s.performance_score >= 80 THEN 'EXCELLENT'
+            WHEN s.performance_score >= 60 THEN 'GOOD'
+            WHEN s.performance_score >= 40 THEN 'FAIR'
+            WHEN s.performance_score >= 20 THEN 'POOR'
+            ELSE 'CRITICAL'
+        END AS health_status,
         
         -- ETL metadata
         s.source_system,
@@ -69,6 +82,8 @@ SELECT
     engine_key,
     time_key,
     airbyte_raw_id,
+    reading_timestamp,
+    engine_id,
     chamber_pressure_psi,
     fuel_flow_kg_per_sec,
     temperature_fahrenheit,
@@ -76,6 +91,7 @@ SELECT
     performance_score,
     is_anomaly,
     anomaly_type,
+    health_status,
     source_system,
     created_at,
     updated_at

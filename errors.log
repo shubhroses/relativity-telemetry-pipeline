@@ -751,3 +751,276 @@
 2025-06-30 16:53:15,645 - INFO - Parsing errors: 0
 2025-06-30 16:53:15,645 - INFO - Success rate: 99.9%
 2025-06-30 16:53:15,645 - INFO - Final output rate: 93.5% (999 unique records)
+2025-06-30 17:06:30,476 - INFO - Starting telemetry data processing...
+2025-06-30 17:06:30,476 - INFO - Output file: data/telemetry_clean.csv
+2025-06-30 17:06:30,477 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:06:30,477 - WARNING - Extremely high temperature detected: 8979.487952335032
+2025-06-30 17:06:30,477 - WARNING - Extremely high temperature detected: 9193.005703028759
+2025-06-30 17:06:30,477 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:06:30,477 - WARNING - Corrected negative pressure: -13.900568675409332 → 13.900568675409332
+2025-06-30 17:06:30,478 - WARNING - Corrected negative pressure: -70.23779627246863 → 70.23779627246863
+2025-06-30 17:06:30,478 - WARNING - Corrected negative pressure: -65.29841175170799 → 65.29841175170799
+2025-06-30 17:06:30,479 - WARNING - Extremely high temperature detected: 11520.092904975969
+2025-06-30 17:06:30,479 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:06:30,479 - WARNING - Extremely high temperature detected: 8944.509429878153
+2025-06-30 17:06:30,479 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:06:30,479 - ERROR - Temperature below absolute zero: -276.6564293650813. Dropping record.
+2025-06-30 17:06:30,479 - WARNING - Extremely high temperature detected: 11415.262796913477
+2025-06-30 17:06:30,480 - WARNING - Extremely high temperature detected: 9913.907952754844
+2025-06-30 17:06:30,480 - WARNING - Extremely high temperature detected: 10201.768976609868
+2025-06-30 17:06:30,480 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:06:30,480 - WARNING - Corrected negative pressure: -89.10488901691821 → 89.10488901691821
+2025-06-30 17:06:30,480 - WARNING - Corrected negative pressure: -68.700899047461 → 68.700899047461
+2025-06-30 17:06:30,480 - WARNING - Extremely high temperature detected: 9272.029430465196
+2025-06-30 17:06:30,481 - WARNING - Extremely high temperature detected: 10798.996241882853
+2025-06-30 17:06:30,481 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:06:30,482 - WARNING - Extremely high temperature detected: 8045.958429723868
+2025-06-30 17:06:30,482 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:06:30,482 - WARNING - Extremely high temperature detected: 9639.755786218262
+2025-06-30 17:06:30,482 - WARNING - Extremely high temperature detected: 8590.439639538858
+2025-06-30 17:06:30,482 - WARNING - Extremely high temperature detected: 8065.191041891985
+2025-06-30 17:06:30,483 - WARNING - Extremely high temperature detected: 9308.409177926744
+2025-06-30 17:06:30,483 - WARNING - Extremely high temperature detected: 8065.191041891985
+2025-06-30 17:06:30,483 - WARNING - Corrected negative pressure: -25.533314241856132 → 25.533314241856132
+2025-06-30 17:06:30,483 - WARNING - Corrected negative pressure: -92.9946396808923 → 92.9946396808923
+2025-06-30 17:06:30,483 - WARNING - Duplicate record removed: 2025-06-30T18:02:30.826291 - ENG-001
+2025-06-30 17:06:30,483 - WARNING - Duplicate record removed: 2025-06-30T17:21:42.620402 - ENG-003
+2025-06-30 17:06:30,483 - WARNING - Duplicate record removed: 2025-06-30T17:38:59.961691 - ENG-005
+2025-06-30 17:06:30,483 - WARNING - Duplicate record removed: 2025-06-30T17:37:53.851047 - ENG-005
+2025-06-30 17:06:30,483 - WARNING - Duplicate record removed: 2025-06-30T17:32:15.369076 - ENG-004
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:25:40.464014 - ENG-005
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:30:44.151371 - ENG-001
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:53:31.792273 - ENG-002
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:30:48.973024 - ENG-003
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:34:12.651745 - ENG-005
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:35:11.970232 - ENG-001
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:55:59.585861 - ENG-002
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:27:18.924012 - ENG-003
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:10:58.740611 - ENG-005
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:34:17.733509 - ENG-004
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:56:52.657112 - ENG-005
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:30:32.056362 - ENG-002
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:33:25.951664 - ENG-004
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:21:35.663245 - ENG-001
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T18:08:42.619121 - ENG-001
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:29:09.953622 - ENG-005
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:09:45.162661 - ENG-005
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:39:59.816252 - ENG-004
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T18:13:07.654104 - ENG-003
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:43:04.339135 - ENG-003
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:12:14.307520 - ENG-004
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:28:37.343806 - ENG-004
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:31:55.367483 - ENG-002
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:17:20.733786 - ENG-002
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:29:56.699617 - ENG-001
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:33:31.898708 - ENG-002
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T18:13:07.562193 - ENG-005
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:21:02.837665 - ENG-005
+2025-06-30 17:06:30,484 - WARNING - Duplicate record removed: 2025-06-30T17:25:05.199174 - ENG-002
+2025-06-30 17:06:30,485 - WARNING - Duplicate record removed: 2025-06-30T17:08:41.089403 - ENG-004
+2025-06-30 17:06:30,485 - WARNING - Duplicate record removed: 2025-06-30T17:22:14.217276 - ENG-002
+2025-06-30 17:06:30,485 - WARNING - Duplicate record removed: 2025-06-30T17:08:40.111583 - ENG-005
+2025-06-30 17:06:30,485 - WARNING - Duplicate record removed: 2025-06-30T17:21:35.392251 - ENG-004
+2025-06-30 17:06:30,485 - WARNING - Duplicate record removed: 2025-06-30T17:24:02.845001 - ENG-004
+2025-06-30 17:06:30,485 - WARNING - Duplicate record removed: 2025-06-30T17:45:47.644091 - ENG-004
+2025-06-30 17:06:30,485 - WARNING - Duplicate record removed: 2025-06-30T17:21:09.140119 - ENG-004
+2025-06-30 17:06:30,485 - WARNING - Duplicate record removed: 2025-06-30T17:14:33.236520 - ENG-004
+2025-06-30 17:06:30,485 - INFO - Removed 42 duplicate records
+2025-06-30 17:06:30,491 - INFO - Successfully wrote 999 unique records to data/telemetry_clean.csv
+2025-06-30 17:06:30,491 - INFO - ==================================================
+2025-06-30 17:06:30,491 - INFO - PROCESSING SUMMARY
+2025-06-30 17:06:30,491 - INFO - ==================================================
+2025-06-30 17:06:30,491 - INFO - Total records processed: 1042
+2025-06-30 17:06:30,491 - INFO - Valid records: 1041
+2025-06-30 17:06:30,491 - INFO - Dropped records: 1
+2025-06-30 17:06:30,491 - INFO - Corrected records: 14
+2025-06-30 17:06:30,491 - INFO - Duplicate records removed: 42
+2025-06-30 17:06:30,491 - INFO - Parsing errors: 0
+2025-06-30 17:06:30,491 - INFO - Success rate: 99.9%
+2025-06-30 17:06:30,491 - INFO - Final output rate: 95.9% (999 unique records)
+2025-06-30 17:35:18,504 - INFO - Starting telemetry data processing...
+2025-06-30 17:35:18,504 - INFO - Output file: data/telemetry_clean.csv
+2025-06-30 17:35:18,505 - WARNING - Extremely high temperature detected: 10354.597202339202
+2025-06-30 17:35:18,505 - WARNING - Corrected negative pressure: -66.78167287072476 → 66.78167287072476
+2025-06-30 17:35:18,505 - WARNING - Extremely high temperature detected: 11255.84173279192
+2025-06-30 17:35:18,505 - WARNING - Corrected negative pressure: -38.59694753929347 → 38.59694753929347
+2025-06-30 17:35:18,506 - WARNING - Corrected negative pressure: -21.8916812286584 → 21.8916812286584
+2025-06-30 17:35:18,506 - WARNING - Extremely high temperature detected: 6409.171270598201
+2025-06-30 17:35:18,506 - WARNING - Extremely high temperature detected: 8558.090124942612
+2025-06-30 17:35:18,506 - WARNING - Extremely high temperature detected: 10769.766142530749
+2025-06-30 17:35:18,507 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:35:18,507 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:35:18,507 - ERROR - Temperature below absolute zero: -294.9340175322648. Dropping record.
+2025-06-30 17:35:18,507 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:35:18,507 - WARNING - Corrected negative pressure: -10.850008591497314 → 10.850008591497314
+2025-06-30 17:35:18,507 - WARNING - Corrected negative pressure: -52.08772066850932 → 52.08772066850932
+2025-06-30 17:35:18,507 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:35:18,508 - WARNING - Extremely high temperature detected: 8457.895177384484
+2025-06-30 17:35:18,508 - ERROR - Temperature below absolute zero: -273.890776464215. Dropping record.
+2025-06-30 17:35:18,508 - WARNING - Extremely high temperature detected: 10257.063270904708
+2025-06-30 17:35:18,508 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:35:18,508 - WARNING - Extremely high temperature detected: 10421.95274509478
+2025-06-30 17:35:18,508 - WARNING - Extremely high temperature detected: 10912.582739896709
+2025-06-30 17:35:18,508 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:35:18,509 - WARNING - Corrected negative pressure: -94.20826188731128 → 94.20826188731128
+2025-06-30 17:35:18,509 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:35:18,509 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:35:18,509 - WARNING - Corrected negative pressure: -28.253378698775744 → 28.253378698775744
+2025-06-30 17:35:18,509 - WARNING - Extremely high temperature detected: 9262.79472613044
+2025-06-30 17:35:18,510 - WARNING - Extremely high temperature detected: 10708.286008125087
+2025-06-30 17:35:18,510 - WARNING - Corrected negative pressure: -51.34098315789167 → 51.34098315789167
+2025-06-30 17:35:18,510 - WARNING - Corrected negative pressure: -93.82808357889854 → 93.82808357889854
+2025-06-30 17:35:18,510 - WARNING - Corrected negative pressure: -85.74262698145905 → 85.74262698145905
+2025-06-30 17:35:18,510 - WARNING - Corrected negative pressure: -52.08772066850932 → 52.08772066850932
+2025-06-30 17:35:18,511 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:35:18,511 - WARNING - Extremely high temperature detected: 11343.728879573282
+2025-06-30 17:35:18,511 - WARNING - Duplicate record removed: 2025-06-30T18:05:32.188563 - TRE-002
+2025-06-30 17:35:18,511 - WARNING - Duplicate record removed: 2025-06-30T17:45:57.739724 - TRE-002
+2025-06-30 17:35:18,511 - WARNING - Duplicate record removed: 2025-06-30T17:37:47.600370 - TRE-002
+2025-06-30 17:35:18,511 - WARNING - Duplicate record removed: 2025-06-30T17:52:05.242675 - TRE-002
+2025-06-30 17:35:18,511 - WARNING - Duplicate record removed: 2025-06-30T17:51:01.455746 - TRE-004
+2025-06-30 17:35:18,511 - WARNING - Duplicate record removed: 2025-06-30T18:05:15.037985 - TRE-005
+2025-06-30 17:35:18,511 - WARNING - Duplicate record removed: 2025-06-30T18:40:35.325199 - TRE-002
+2025-06-30 17:35:18,511 - WARNING - Duplicate record removed: 2025-06-30T17:41:18.943923 - TRE-004
+2025-06-30 17:35:18,511 - WARNING - Duplicate record removed: 2025-06-30T17:49:15.403118 - TRE-001
+2025-06-30 17:35:18,511 - WARNING - Duplicate record removed: 2025-06-30T18:01:38.988333 - TRE-003
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T18:34:23.404539 - TRE-005
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T18:04:41.910652 - TRE-005
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T18:18:51.710367 - TRE-001
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:39:43.663754 - TRE-003
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:59:20.390458 - TRE-002
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:50:07.189495 - TRE-001
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T18:05:28.002254 - TRE-004
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T18:47:09.186044 - TRE-003
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:38:08.119100 - TRE-004
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T18:16:56.978848 - TRE-004
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T18:11:14.052815 - TRE-003
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:37:48.254032 - TRE-001
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:35:24.020595 - TRE-004
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:55:43.046014 - TRE-003
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:44:27.905535 - TRE-002
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:44:48.502832 - TRE-005
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:36:29.966709 - TRE-002
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:36:27.866468 - TRE-001
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:59:24.824693 - TRE-005
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:50:12.921283 - TRE-002
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:51:04.253192 - TRE-003
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T18:30:03.550191 - TRE-002
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T18:00:58.924941 - TRE-005
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T18:16:26.408511 - TRE-002
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:54:17.208297 - TRE-004
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:38:50.704327 - TRE-003
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:48:19.844960 - TRE-005
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:43:26.114965 - TRE-003
+2025-06-30 17:35:18,512 - WARNING - Duplicate record removed: 2025-06-30T17:49:09.981160 - TRE-004
+2025-06-30 17:35:18,513 - WARNING - Duplicate record removed: 2025-06-30T18:25:43.776004 - TRE-003
+2025-06-30 17:35:18,513 - WARNING - Duplicate record removed: 2025-06-30T18:28:14.100544 - TRE-002
+2025-06-30 17:35:18,513 - WARNING - Duplicate record removed: 2025-06-30T17:50:38.152058 - TRE-005
+2025-06-30 17:35:18,513 - WARNING - Duplicate record removed: 2025-06-30T17:35:42.079794 - TRE-004
+2025-06-30 17:35:18,513 - WARNING - Duplicate record removed: 2025-06-30T18:52:51.828088 - TRE-004
+2025-06-30 17:35:18,513 - WARNING - Duplicate record removed: 2025-06-30T18:31:54.878952 - TRE-003
+2025-06-30 17:35:18,513 - WARNING - Duplicate record removed: 2025-06-30T18:05:08.976833 - TRE-003
+2025-06-30 17:35:18,513 - WARNING - Duplicate record removed: 2025-06-30T17:41:08.173380 - TRE-001
+2025-06-30 17:35:18,513 - WARNING - Duplicate record removed: 2025-06-30T17:55:45.556158 - TRE-004
+2025-06-30 17:35:18,513 - WARNING - Duplicate record removed: 2025-06-30T17:44:52.591183 - TRE-002
+2025-06-30 17:35:18,513 - WARNING - Duplicate record removed: 2025-06-30T17:49:37.770037 - TRE-004
+2025-06-30 17:35:18,513 - WARNING - Duplicate record removed: 2025-06-30T17:37:15.086647 - TRE-004
+2025-06-30 17:35:18,513 - INFO - Removed 51 duplicate records
+2025-06-30 17:35:18,520 - INFO - Successfully wrote 998 unique records to data/telemetry_clean.csv
+2025-06-30 17:35:18,520 - INFO - ==================================================
+2025-06-30 17:35:18,520 - INFO - PROCESSING SUMMARY
+2025-06-30 17:35:18,520 - INFO - ==================================================
+2025-06-30 17:35:18,520 - INFO - Total records processed: 1051
+2025-06-30 17:35:18,520 - INFO - Valid records: 1049
+2025-06-30 17:35:18,520 - INFO - Dropped records: 2
+2025-06-30 17:35:18,520 - INFO - Corrected records: 20
+2025-06-30 17:35:18,520 - INFO - Duplicate records removed: 51
+2025-06-30 17:35:18,520 - INFO - Parsing errors: 0
+2025-06-30 17:35:18,520 - INFO - Success rate: 99.8%
+2025-06-30 17:35:18,520 - INFO - Final output rate: 95.0% (998 unique records)
+2025-06-30 17:36:43,507 - INFO - Starting telemetry data processing...
+2025-06-30 17:36:43,508 - INFO - Output file: data/telemetry_clean.csv
+2025-06-30 17:36:43,508 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:36:43,508 - WARNING - Extremely high temperature detected: 10318.735698372693
+2025-06-30 17:36:43,509 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:36:43,509 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:36:43,509 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:36:43,509 - WARNING - Corrected negative pressure: -37.29358739505543 → 37.29358739505543
+2025-06-30 17:36:43,511 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:36:43,512 - WARNING - Corrected negative pressure: -69.51728477242449 → 69.51728477242449
+2025-06-30 17:36:43,513 - WARNING - Extremely high temperature detected: 9652.596804102166
+2025-06-30 17:36:43,514 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:36:43,515 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:36:43,515 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:36:43,515 - WARNING - Corrected negative pressure: -88.89083785061655 → 88.89083785061655
+2025-06-30 17:36:43,515 - WARNING - Corrected negative pressure: -65.94968508660321 → 65.94968508660321
+2025-06-30 17:36:43,516 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:36:43,516 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:36:43,516 - WARNING - Corrected negative pressure: -45.13513346623947 → 45.13513346623947
+2025-06-30 17:36:43,517 - WARNING - Extremely high temperature detected: 9823.571693132722
+2025-06-30 17:36:43,517 - WARNING - Corrected negative pressure: -56.356767258734195 → 56.356767258734195
+2025-06-30 17:36:43,518 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:36:43,518 - WARNING - Corrected negative pressure: -13.689014499612213 → 13.689014499612213
+2025-06-30 17:36:43,519 - WARNING - Extremely high temperature detected: 9395.255332769742
+2025-06-30 17:36:43,520 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 17:36:43,521 - WARNING - Extremely high temperature detected: 10381.875794780455
+2025-06-30 17:36:43,522 - WARNING - Duplicate record removed: 2025-06-30T17:42:19.524070 - TRE-004
+2025-06-30 17:36:43,522 - WARNING - Duplicate record removed: 2025-06-30T17:42:06.961787 - TRE-003
+2025-06-30 17:36:43,522 - WARNING - Duplicate record removed: 2025-06-30T17:57:49.668215 - TRE-005
+2025-06-30 17:36:43,522 - WARNING - Duplicate record removed: 2025-06-30T17:58:16.115000 - TRE-001
+2025-06-30 17:36:43,522 - WARNING - Duplicate record removed: 2025-06-30T17:43:06.729898 - TRE-005
+2025-06-30 17:36:43,523 - WARNING - Duplicate record removed: 2025-06-30T17:58:28.893126 - TRE-002
+2025-06-30 17:36:43,523 - WARNING - Duplicate record removed: 2025-06-30T17:39:26.469971 - TRE-004
+2025-06-30 17:36:43,523 - WARNING - Duplicate record removed: 2025-06-30T17:51:07.543399 - TRE-001
+2025-06-30 17:36:43,523 - WARNING - Duplicate record removed: 2025-06-30T17:48:02.249859 - TRE-003
+2025-06-30 17:36:43,523 - WARNING - Duplicate record removed: 2025-06-30T17:44:42.622534 - TRE-001
+2025-06-30 17:36:43,524 - WARNING - Duplicate record removed: 2025-06-30T18:09:01.869077 - TRE-005
+2025-06-30 17:36:43,524 - WARNING - Duplicate record removed: 2025-06-30T18:40:43.587820 - TRE-004
+2025-06-30 17:36:43,524 - WARNING - Duplicate record removed: 2025-06-30T18:14:14.367320 - TRE-003
+2025-06-30 17:36:43,524 - WARNING - Duplicate record removed: 2025-06-30T18:04:57.075419 - TRE-003
+2025-06-30 17:36:43,524 - WARNING - Duplicate record removed: 2025-06-30T18:00:15.863219 - TRE-003
+2025-06-30 17:36:43,524 - WARNING - Duplicate record removed: 2025-06-30T17:55:22.267947 - TRE-005
+2025-06-30 17:36:43,524 - WARNING - Duplicate record removed: 2025-06-30T18:31:35.569307 - TRE-002
+2025-06-30 17:36:43,524 - WARNING - Duplicate record removed: 2025-06-30T17:56:47.579937 - TRE-005
+2025-06-30 17:36:43,524 - WARNING - Duplicate record removed: 2025-06-30T17:50:05.633136 - TRE-001
+2025-06-30 17:36:43,524 - WARNING - Duplicate record removed: 2025-06-30T17:41:16.116469 - TRE-003
+2025-06-30 17:36:43,524 - WARNING - Duplicate record removed: 2025-06-30T17:56:53.537306 - TRE-002
+2025-06-30 17:36:43,525 - WARNING - Duplicate record removed: 2025-06-30T17:45:18.984156 - TRE-003
+2025-06-30 17:36:43,525 - WARNING - Duplicate record removed: 2025-06-30T17:41:50.770459 - TRE-001
+2025-06-30 17:36:43,525 - WARNING - Duplicate record removed: 2025-06-30T17:38:19.544017 - TRE-004
+2025-06-30 17:36:43,525 - WARNING - Duplicate record removed: 2025-06-30T17:49:08.140635 - TRE-004
+2025-06-30 17:36:43,525 - WARNING - Duplicate record removed: 2025-06-30T18:41:41.853189 - TRE-002
+2025-06-30 17:36:43,525 - WARNING - Duplicate record removed: 2025-06-30T18:16:34.259848 - TRE-005
+2025-06-30 17:36:43,525 - WARNING - Duplicate record removed: 2025-06-30T18:25:30.713488 - TRE-005
+2025-06-30 17:36:43,525 - WARNING - Duplicate record removed: 2025-06-30T18:09:47.135543 - TRE-001
+2025-06-30 17:36:43,525 - WARNING - Duplicate record removed: 2025-06-30T17:51:49.828139 - TRE-003
+2025-06-30 17:36:43,526 - WARNING - Duplicate record removed: 2025-06-30T18:02:39.748052 - TRE-005
+2025-06-30 17:36:43,526 - WARNING - Duplicate record removed: 2025-06-30T18:22:30.340312 - TRE-001
+2025-06-30 17:36:43,526 - WARNING - Duplicate record removed: 2025-06-30T17:58:15.939584 - TRE-001
+2025-06-30 17:36:43,526 - WARNING - Duplicate record removed: 2025-06-30T17:42:17.851756 - TRE-005
+2025-06-30 17:36:43,526 - WARNING - Duplicate record removed: 2025-06-30T18:12:18.499021 - TRE-005
+2025-06-30 17:36:43,527 - WARNING - Duplicate record removed: 2025-06-30T17:49:01.090947 - TRE-002
+2025-06-30 17:36:43,527 - WARNING - Duplicate record removed: 2025-06-30T17:37:07.062370 - TRE-001
+2025-06-30 17:36:43,527 - WARNING - Duplicate record removed: 2025-06-30T17:56:18.946049 - TRE-003
+2025-06-30 17:36:43,528 - WARNING - Duplicate record removed: 2025-06-30T18:08:04.581042 - TRE-002
+2025-06-30 17:36:43,528 - WARNING - Duplicate record removed: 2025-06-30T17:59:19.344388 - TRE-002
+2025-06-30 17:36:43,528 - WARNING - Duplicate record removed: 2025-06-30T17:47:45.043653 - TRE-005
+2025-06-30 17:36:43,528 - WARNING - Duplicate record removed: 2025-06-30T17:39:22.044881 - TRE-005
+2025-06-30 17:36:43,528 - WARNING - Duplicate record removed: 2025-06-30T18:40:38.196471 - TRE-004
+2025-06-30 17:36:43,528 - WARNING - Duplicate record removed: 2025-06-30T17:50:26.686938 - TRE-003
+2025-06-30 17:36:43,529 - WARNING - Duplicate record removed: 2025-06-30T17:59:08.076115 - TRE-003
+2025-06-30 17:36:43,529 - WARNING - Duplicate record removed: 2025-06-30T17:59:37.919703 - TRE-004
+2025-06-30 17:36:43,529 - WARNING - Duplicate record removed: 2025-06-30T18:33:32.633907 - TRE-005
+2025-06-30 17:36:43,529 - INFO - Removed 47 duplicate records
+2025-06-30 17:36:43,543 - INFO - Successfully wrote 1000 unique records to data/telemetry_clean.csv
+2025-06-30 17:36:43,543 - INFO - ==================================================
+2025-06-30 17:36:43,543 - INFO - PROCESSING SUMMARY
+2025-06-30 17:36:43,544 - INFO - ==================================================
+2025-06-30 17:36:43,544 - INFO - Total records processed: 1047
+2025-06-30 17:36:43,544 - INFO - Valid records: 1047
+2025-06-30 17:36:43,544 - INFO - Dropped records: 0
+2025-06-30 17:36:43,544 - INFO - Corrected records: 19
+2025-06-30 17:36:43,544 - INFO - Duplicate records removed: 47
+2025-06-30 17:36:43,544 - INFO - Parsing errors: 0
+2025-06-30 17:36:43,544 - INFO - Success rate: 100.0%
+2025-06-30 17:36:43,544 - INFO - Final output rate: 95.5% (1000 unique records)

@@ -17,13 +17,13 @@ from typing import Dict, Any, List
 
 class TelemetryGenerator:
     def __init__(self):
-        # Engine configurations with moderate differences (more realistic)
+        # Engine configurations with moderate differences (Terran R engines)
         self.engines = {
-            "ENG-001": {"performance": 0.88, "failure_rate": 0.12, "name": "Aeon Engine Alpha"},     # Good condition
-            "ENG-002": {"performance": 0.75, "failure_rate": 0.18, "name": "Aeon Engine Beta"},      # Needs attention
-            "ENG-003": {"performance": 0.92, "failure_rate": 0.08, "name": "Aeon Engine Gamma"},     # Excellent 
-            "ENG-004": {"performance": 0.82, "failure_rate": 0.15, "name": "Aeon Engine Delta"},     # Good condition
-            "ENG-005": {"performance": 0.85, "failure_rate": 0.13, "name": "Aeon Engine Epsilon"},   # Good condition
+            "TRE-001": {"performance": 0.88, "failure_rate": 0.12, "name": "Terran R Engine Alpha"},     # Good condition
+            "TRE-002": {"performance": 0.75, "failure_rate": 0.18, "name": "Terran R Engine Beta"},      # Needs attention
+            "TRE-003": {"performance": 0.92, "failure_rate": 0.08, "name": "Terran R Engine Gamma"},     # Excellent 
+            "TRE-004": {"performance": 0.82, "failure_rate": 0.15, "name": "Terran R Engine Delta"},     # Good condition
+            "TRE-005": {"performance": 0.85, "failure_rate": 0.13, "name": "Terran R Engine Epsilon"},   # Good condition
         }
         
         # Realistic parameter ranges

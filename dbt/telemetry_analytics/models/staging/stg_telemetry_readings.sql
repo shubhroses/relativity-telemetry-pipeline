@@ -49,29 +49,29 @@ cleaned_data AS (
             ELSE NULL 
         END AS fuel_efficiency_ratio,
         
-        -- Composite performance score (weighted average)
+        -- Composite performance score (weighted average) - relaxed thresholds
         (
-            CASE WHEN chamber_pressure_psi BETWEEN 150 AND 300 THEN 0.4 ELSE 0.0 END +
-            CASE WHEN fuel_flow_kg_per_sec BETWEEN 50 AND 150 THEN 0.3 ELSE 0.0 END +
-            CASE WHEN temperature_fahrenheit BETWEEN 2000 AND 3500 THEN 0.3 ELSE 0.0 END
+            CASE WHEN chamber_pressure_psi BETWEEN 120 AND 350 THEN 0.4 ELSE 0.0 END +
+            CASE WHEN fuel_flow_kg_per_sec BETWEEN 30 AND 180 THEN 0.3 ELSE 0.0 END +
+            CASE WHEN temperature_fahrenheit BETWEEN 1800 AND 4200 THEN 0.3 ELSE 0.0 END
         ) * 100 AS performance_score,
         
-        -- Data quality flags
+        -- Data quality flags - more realistic thresholds
         CASE 
-            WHEN chamber_pressure_psi < 100 OR chamber_pressure_psi > 350 THEN TRUE
-            WHEN fuel_flow_kg_per_sec < 25 OR fuel_flow_kg_per_sec > 200 THEN TRUE
-            WHEN temperature_fahrenheit < 1500 OR temperature_fahrenheit > 4000 THEN TRUE
+            WHEN chamber_pressure_psi < 80 OR chamber_pressure_psi > 400 THEN TRUE
+            WHEN fuel_flow_kg_per_sec < 15 OR fuel_flow_kg_per_sec > 220 THEN TRUE
+            WHEN temperature_fahrenheit < 1200 OR temperature_fahrenheit > 4500 THEN TRUE
             ELSE FALSE
         END AS is_anomaly,
         
-        -- Anomaly type classification
+        -- Anomaly type classification - relaxed thresholds
         CASE 
-            WHEN chamber_pressure_psi < 100 THEN 'LOW_PRESSURE'
-            WHEN chamber_pressure_psi > 350 THEN 'HIGH_PRESSURE'
-            WHEN fuel_flow_kg_per_sec < 25 THEN 'LOW_FUEL_FLOW'
-            WHEN fuel_flow_kg_per_sec > 200 THEN 'HIGH_FUEL_FLOW'
-            WHEN temperature_fahrenheit < 1500 THEN 'LOW_TEMPERATURE'
-            WHEN temperature_fahrenheit > 4000 THEN 'HIGH_TEMPERATURE'
+            WHEN chamber_pressure_psi < 80 THEN 'LOW_PRESSURE'
+            WHEN chamber_pressure_psi > 400 THEN 'HIGH_PRESSURE'
+            WHEN fuel_flow_kg_per_sec < 15 THEN 'LOW_FUEL_FLOW'
+            WHEN fuel_flow_kg_per_sec > 220 THEN 'HIGH_FUEL_FLOW'
+            WHEN temperature_fahrenheit < 1200 THEN 'LOW_TEMPERATURE'
+            WHEN temperature_fahrenheit > 4500 THEN 'HIGH_TEMPERATURE'
             ELSE NULL
         END AS anomaly_type,
         

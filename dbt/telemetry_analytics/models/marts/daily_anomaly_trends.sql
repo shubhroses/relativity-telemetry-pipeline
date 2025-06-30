@@ -16,86 +16,52 @@ WITH fact_readings AS (
     SELECT * FROM {{ ref('fact_telemetry_readings') }}
 ),
 
-time_dims AS (
-    SELECT 
-        time_key,
-        date_actual,
-        day_name,
-        hour_24,
-        operational_window,
-        is_weekend,
-        is_business_day
-    FROM telemetry_clean.dim_time
-),
-
-engine_dims AS (
-    SELECT 
-        engine_key,
-        engine_id,
-        engine_name
-    FROM telemetry_clean.dim_engines
-    WHERE is_current = TRUE
-),
-
 daily_metrics AS (
     SELECT 
-        t.date_actual,
-        t.day_name,
-        t.is_weekend,
-        t.is_business_day,
+        DATE(reading_timestamp) AS date_actual,
+        EXTRACT(DOW FROM reading_timestamp) AS day_of_week,
+        CASE WHEN EXTRACT(DOW FROM reading_timestamp) IN (0, 6) THEN TRUE ELSE FALSE END AS is_weekend,
         
         -- Overall metrics
         COUNT(*) AS total_readings,
-        COUNT(CASE WHEN f.is_anomaly THEN 1 END) AS total_anomalies,
+        COUNT(CASE WHEN is_anomaly THEN 1 END) AS total_anomalies,
         ROUND(
-            COUNT(CASE WHEN f.is_anomaly THEN 1 END) * 100.0 / COUNT(*), 
+            COUNT(CASE WHEN is_anomaly THEN 1 END) * 100.0 / COUNT(*), 
             2
         ) AS daily_anomaly_rate_percent,
         
         -- Anomaly type breakdown
-        COUNT(CASE WHEN f.anomaly_type = 'LOW_PRESSURE' THEN 1 END) AS low_pressure_anomalies,
-        COUNT(CASE WHEN f.anomaly_type = 'HIGH_PRESSURE' THEN 1 END) AS high_pressure_anomalies,
-        COUNT(CASE WHEN f.anomaly_type = 'LOW_FUEL_FLOW' THEN 1 END) AS low_fuel_flow_anomalies,
-        COUNT(CASE WHEN f.anomaly_type = 'HIGH_FUEL_FLOW' THEN 1 END) AS high_fuel_flow_anomalies,
-        COUNT(CASE WHEN f.anomaly_type = 'LOW_TEMPERATURE' THEN 1 END) AS low_temperature_anomalies,
-        COUNT(CASE WHEN f.anomaly_type = 'HIGH_TEMPERATURE' THEN 1 END) AS high_temperature_anomalies,
+        COUNT(CASE WHEN anomaly_type = 'LOW_PRESSURE' THEN 1 END) AS low_pressure_anomalies,
+        COUNT(CASE WHEN anomaly_type = 'HIGH_PRESSURE' THEN 1 END) AS high_pressure_anomalies,
+        COUNT(CASE WHEN anomaly_type = 'LOW_FUEL_FLOW' THEN 1 END) AS low_fuel_flow_anomalies,
+        COUNT(CASE WHEN anomaly_type = 'HIGH_FUEL_FLOW' THEN 1 END) AS high_fuel_flow_anomalies,
+        COUNT(CASE WHEN anomaly_type = 'LOW_TEMPERATURE' THEN 1 END) AS low_temperature_anomalies,
+        COUNT(CASE WHEN anomaly_type = 'HIGH_TEMPERATURE' THEN 1 END) AS high_temperature_anomalies,
         
         -- Performance metrics
-        AVG(f.performance_score) AS avg_daily_performance_score,
-        MIN(f.performance_score) AS min_daily_performance_score,
-        MAX(f.performance_score) AS max_daily_performance_score,
-        STDDEV(f.performance_score) AS stddev_daily_performance,
-        
-        -- Operational window analysis
-        COUNT(CASE WHEN t.operational_window = 'PRE_FLIGHT' THEN 1 END) AS pre_flight_readings,
-        COUNT(CASE WHEN t.operational_window = 'IGNITION' THEN 1 END) AS ignition_readings,
-        COUNT(CASE WHEN t.operational_window = 'BURN' THEN 1 END) AS burn_readings,
-        COUNT(CASE WHEN t.operational_window = 'SHUTDOWN' THEN 1 END) AS shutdown_readings,
-        COUNT(CASE WHEN t.operational_window = 'POST_FLIGHT' THEN 1 END) AS post_flight_readings,
-        
-        -- Anomalies during critical burn phase
-        COUNT(CASE WHEN t.operational_window = 'BURN' AND f.is_anomaly THEN 1 END) AS burn_phase_anomalies,
-        ROUND(
-            COUNT(CASE WHEN t.operational_window = 'BURN' AND f.is_anomaly THEN 1 END) * 100.0 / 
-            NULLIF(COUNT(CASE WHEN t.operational_window = 'BURN' THEN 1 END), 0), 
-            2
-        ) AS burn_phase_anomaly_rate_percent,
+        AVG(performance_score) AS avg_daily_performance_score,
+        MIN(performance_score) AS min_daily_performance_score,
+        MAX(performance_score) AS max_daily_performance_score,
+        STDDEV(performance_score) AS stddev_daily_performance,
         
         -- Engine distribution
-        COUNT(DISTINCT e.engine_id) AS active_engines,
+        COUNT(DISTINCT engine_id) AS active_engines,
+        
+        -- Health status distribution
+        COUNT(CASE WHEN health_status = 'EXCELLENT' THEN 1 END) AS excellent_readings,
+        COUNT(CASE WHEN health_status = 'GOOD' THEN 1 END) AS good_readings,
+        COUNT(CASE WHEN health_status = 'FAIR' THEN 1 END) AS fair_readings,
+        COUNT(CASE WHEN health_status = 'POOR' THEN 1 END) AS poor_readings,
+        COUNT(CASE WHEN health_status = 'CRITICAL' THEN 1 END) AS critical_readings,
         
         -- Data freshness
-        MIN(f.created_at) AS earliest_processing_time,
-        MAX(f.created_at) AS latest_processing_time
+        MIN(created_at) AS earliest_processing_time,
+        MAX(created_at) AS latest_processing_time
         
-    FROM fact_readings f
-    INNER JOIN time_dims t ON f.time_key = t.time_key
-    INNER JOIN engine_dims e ON f.engine_key = e.engine_key
+    FROM fact_readings
     GROUP BY 
-        t.date_actual,
-        t.day_name,
-        t.is_weekend,
-        t.is_business_day
+        DATE(reading_timestamp),
+        EXTRACT(DOW FROM reading_timestamp)
 ),
 
 trend_analysis AS (
@@ -152,7 +118,7 @@ final_analysis AS (
         -- Alert flags
         CASE 
             WHEN daily_anomaly_rate_percent > 25 THEN 'HIGH_ANOMALY_ALERT'
-            WHEN burn_phase_anomaly_rate_percent > 15 THEN 'CRITICAL_PHASE_ALERT'
+            WHEN critical_readings > 0 THEN 'CRITICAL_HEALTH_ALERT'
             WHEN day_over_day_anomaly_change > 10 THEN 'RAPID_DETERIORATION_ALERT'
             ELSE NULL
         END AS alert_flag,
