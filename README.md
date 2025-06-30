@@ -137,8 +137,6 @@ This project directly demonstrates capabilities for the **Data Engineer II posit
 
 **Portfolio Project by**: [Your Name]  
 **Target Role**: Data Engineer II at Relativity Space  
-**Salary Range**: $132K - $169K  
-**Location**: Remote/Long Beach, CA  
 
 ---
 
