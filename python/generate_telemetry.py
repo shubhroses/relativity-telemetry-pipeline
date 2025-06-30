@@ -17,13 +17,13 @@ from typing import Dict, Any, List
 
 class TelemetryGenerator:
     def __init__(self):
-        # Engine configurations with dramatic differences
+        # Engine configurations with moderate differences (more realistic)
         self.engines = {
-            "ENG-001": {"performance": 0.95, "failure_rate": 0.15, "name": "Aeon Engine Alpha"},     # Good but aging
-            "ENG-002": {"performance": 0.60, "failure_rate": 0.35, "name": "Aeon Engine Beta"},      # CRITICAL ISSUES
-            "ENG-003": {"performance": 0.98, "failure_rate": 0.08, "name": "Aeon Engine Gamma"},     # Excellent 
-            "ENG-004": {"performance": 0.75, "failure_rate": 0.25, "name": "Aeon Engine Delta"},     # Needs attention
-            "ENG-005": {"performance": 0.85, "failure_rate": 0.18, "name": "Aeon Engine Epsilon"},   # Fair condition
+            "ENG-001": {"performance": 0.88, "failure_rate": 0.12, "name": "Aeon Engine Alpha"},     # Good condition
+            "ENG-002": {"performance": 0.75, "failure_rate": 0.18, "name": "Aeon Engine Beta"},      # Needs attention
+            "ENG-003": {"performance": 0.92, "failure_rate": 0.08, "name": "Aeon Engine Gamma"},     # Excellent 
+            "ENG-004": {"performance": 0.82, "failure_rate": 0.15, "name": "Aeon Engine Delta"},     # Good condition
+            "ENG-005": {"performance": 0.85, "failure_rate": 0.13, "name": "Aeon Engine Epsilon"},   # Good condition
         }
         
         # Realistic parameter ranges
@@ -33,12 +33,12 @@ class TelemetryGenerator:
             "temperature": {"min": 2000, "max": 4000, "unit": "°F"}
         }
         
-        # Higher anomaly rates for interesting demo
+        # More moderate anomaly rates for realistic demo
         self.anomaly_rates = {
-            "missing_fields": 0.08,      # 8% missing data
-            "out_of_range": 0.12,        # 12% sensor errors  
-            "duplicates": 0.06,          # 6% duplicate readings
-            "critical_failures": 0.05    # 5% critical engine failures
+            "missing_fields": 0.03,      # 3% missing data (sensor failures)
+            "out_of_range": 0.05,        # 5% sensor errors  
+            "duplicates": 0.04,          # 4% duplicate readings
+            "critical_failures": 0.02    # 2% critical engine failures
         }
         
     def generate_base_reading(self, engine_id: str, timestamp: datetime) -> Dict[str, Any]:
@@ -173,8 +173,8 @@ class TelemetryGenerator:
             time_offset = timedelta(seconds=random.uniform(1, 5) * i)
             timestamp = start_time + time_offset
             
-            # Select engine (weighted by operational status)
-            engine_weights = [0.2, 0.25, 0.2, 0.2, 0.15]  # ENG-002 gets more readings (problem engine)
+            # Select engine (balanced operational status)
+            engine_weights = [0.2, 0.2, 0.2, 0.2, 0.2]  # Equal distribution across all engines
             engine_id = random.choices(list(self.engines.keys()), weights=engine_weights)[0]
             
             # Generate base reading
@@ -214,7 +214,7 @@ def main():
     print(f"# Engine IDs: {list(generator.engines.keys())}", file=sys.stderr)
     print(f"# Started at: {datetime.now().isoformat()}", file=sys.stderr)
     print(f"# Expected anomalies: ~{generator.anomaly_rates['missing_fields']*100:.0f}% missing fields, ~{generator.anomaly_rates['out_of_range']*100:.0f}% out-of-range values, ~{generator.anomaly_rates['duplicates']*100:.0f}% duplicates", file=sys.stderr)
-    print(f"# CRITICAL: ~{generator.anomaly_rates['critical_failures']*100:.0f}% critical failures", file=sys.stderr)
+    print(f"# Moderate failure rates: ~{generator.anomaly_rates['critical_failures']*100:.0f}% critical failures", file=sys.stderr)
     
     records = generator.generate_telemetry_batch(num_records)
     
