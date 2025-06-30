@@ -32,7 +32,8 @@ class TelemetryProcessor:
             "valid_records": 0,
             "dropped_records": 0,
             "corrected_records": 0,
-            "parsing_errors": 0
+            "parsing_errors": 0,
+            "duplicate_records": 0
         }
         
         # Setup logging
@@ -168,6 +169,26 @@ class TelemetryProcessor:
         if not records:
             self.logger.warning("No valid records to write to CSV")
             return
+        
+        # Remove duplicates based on key fields (timestamp + engine_id)
+        seen_records = set()
+        unique_records = []
+        duplicate_count = 0
+        
+        for record in records:
+            # Create a unique key from timestamp and engine_id
+            key = (record.get('timestamp'), record.get('engine_id'))
+            
+            if key not in seen_records:
+                seen_records.add(key)
+                unique_records.append(record)
+            else:
+                duplicate_count += 1
+                self.logger.warning(f"Duplicate record removed: {record.get('timestamp')} - {record.get('engine_id')}")
+        
+        if duplicate_count > 0:
+            self.logger.info(f"Removed {duplicate_count} duplicate records")
+            self.stats["duplicate_records"] = duplicate_count
             
         try:
             with open(self.output_file, 'w', newline='') as csvfile:
@@ -176,12 +197,12 @@ class TelemetryProcessor:
                 writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
                 
                 writer.writeheader()
-                for record in records:
+                for record in unique_records:
                     # Ensure all fields are present (fill missing with None)
                     row = {field: record.get(field) for field in fieldnames}
                     writer.writerow(row)
                     
-            self.logger.info(f"Successfully wrote {len(records)} records to {self.output_file}")
+            self.logger.info(f"Successfully wrote {len(unique_records)} unique records to {self.output_file}")
             
         except Exception as e:
             self.logger.error(f"Error writing CSV file: {e}")
@@ -196,11 +217,17 @@ class TelemetryProcessor:
         self.logger.info(f"Valid records: {self.stats['valid_records']}")
         self.logger.info(f"Dropped records: {self.stats['dropped_records']}")
         self.logger.info(f"Corrected records: {self.stats['corrected_records']}")
+        self.logger.info(f"Duplicate records removed: {self.stats.get('duplicate_records', 0)}")
         self.logger.info(f"Parsing errors: {self.stats['parsing_errors']}")
         
         if self.stats['total_records'] > 0:
             success_rate = (self.stats['valid_records'] / self.stats['total_records']) * 100
             self.logger.info(f"Success rate: {success_rate:.1f}%")
+            
+            # Calculate final output rate
+            final_records = self.stats['valid_records'] - self.stats.get('duplicate_records', 0)
+            output_rate = (final_records / self.stats['total_records']) * 100
+            self.logger.info(f"Final output rate: {output_rate:.1f}% ({final_records} unique records)")
 
 
 def main():

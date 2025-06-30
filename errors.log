@@ -202,3 +202,145 @@
 2025-06-30 16:12:26,176 - INFO - Corrected records: 16
 2025-06-30 16:12:26,176 - INFO - Parsing errors: 0
 2025-06-30 16:12:26,176 - INFO - Success rate: 100.0%
+2025-06-30 16:38:45,095 - INFO - Starting telemetry data processing...
+2025-06-30 16:38:45,095 - INFO - Output file: data/telemetry_clean.csv
+2025-06-30 16:38:45,096 - WARNING - Corrected negative pressure: -47.763995873230435 → 47.763995873230435
+2025-06-30 16:38:45,096 - WARNING - Extremely high temperature detected: 6266.771136589357
+2025-06-30 16:38:45,097 - WARNING - Corrected negative pressure: -1.4100431282426626 → 1.4100431282426626
+2025-06-30 16:38:45,097 - WARNING - Corrected negative pressure: -7.212103838085902 → 7.212103838085902
+2025-06-30 16:38:45,098 - WARNING - Corrected negative pressure: -25.385429776861674 → 25.385429776861674
+2025-06-30 16:38:45,098 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:38:45,098 - WARNING - Corrected negative pressure: -31.912723963723458 → 31.912723963723458
+2025-06-30 16:38:45,098 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:38:45,098 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:38:45,098 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:38:45,099 - WARNING - Corrected negative pressure: -22.79486141462398 → 22.79486141462398
+2025-06-30 16:38:45,099 - WARNING - Corrected negative pressure: -41.861320532334986 → 41.861320532334986
+2025-06-30 16:38:45,099 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:38:45,099 - WARNING - Corrected negative pressure: -31.801246817355675 → 31.801246817355675
+2025-06-30 16:38:45,100 - WARNING - Corrected negative pressure: -46.04631769440597 → 46.04631769440597
+2025-06-30 16:38:45,100 - WARNING - Corrected negative pressure: -25.00913224103462 → 25.00913224103462
+2025-06-30 16:38:45,100 - WARNING - Extremely high temperature detected: 7090.584022175943
+2025-06-30 16:38:45,101 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:38:45,101 - WARNING - Extremely high temperature detected: 6924.491038270623
+2025-06-30 16:38:45,106 - INFO - Successfully wrote 1000 records to data/telemetry_clean.csv
+2025-06-30 16:38:45,106 - INFO - ==================================================
+2025-06-30 16:38:45,106 - INFO - PROCESSING SUMMARY
+2025-06-30 16:38:45,106 - INFO - ==================================================
+2025-06-30 16:38:45,106 - INFO - Total records processed: 1000
+2025-06-30 16:38:45,106 - INFO - Valid records: 1000
+2025-06-30 16:38:45,106 - INFO - Dropped records: 0
+2025-06-30 16:38:45,106 - INFO - Corrected records: 16
+2025-06-30 16:38:45,106 - INFO - Parsing errors: 0
+2025-06-30 16:38:45,106 - INFO - Success rate: 100.0%
+2025-06-30 16:39:42,319 - INFO - Starting telemetry data processing...
+2025-06-30 16:39:42,320 - INFO - Output file: data/telemetry_clean_enhanced.csv
+2025-06-30 16:39:42,320 - WARNING - Corrected negative pressure: -47.763995873230435 → 47.763995873230435
+2025-06-30 16:39:42,321 - WARNING - Extremely high temperature detected: 6266.771136589357
+2025-06-30 16:39:42,322 - WARNING - Corrected negative pressure: -1.4100431282426626 → 1.4100431282426626
+2025-06-30 16:39:42,322 - WARNING - Corrected negative pressure: -7.212103838085902 → 7.212103838085902
+2025-06-30 16:39:42,323 - WARNING - Corrected negative pressure: -25.385429776861674 → 25.385429776861674
+2025-06-30 16:39:42,323 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:39:42,324 - WARNING - Corrected negative pressure: -31.912723963723458 → 31.912723963723458
+2025-06-30 16:39:42,324 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:39:42,324 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:39:42,325 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:39:42,326 - WARNING - Corrected negative pressure: -22.79486141462398 → 22.79486141462398
+2025-06-30 16:39:42,327 - WARNING - Corrected negative pressure: -41.861320532334986 → 41.861320532334986
+2025-06-30 16:39:42,327 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:39:42,327 - WARNING - Corrected negative pressure: -31.801246817355675 → 31.801246817355675
+2025-06-30 16:39:42,328 - WARNING - Corrected negative pressure: -46.04631769440597 → 46.04631769440597
+2025-06-30 16:39:42,329 - WARNING - Corrected negative pressure: -25.00913224103462 → 25.00913224103462
+2025-06-30 16:39:42,330 - WARNING - Extremely high temperature detected: 7090.584022175943
+2025-06-30 16:39:42,332 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:39:42,332 - WARNING - Extremely high temperature detected: 6924.491038270623
+2025-06-30 16:39:42,333 - WARNING - Duplicate record removed: 2025-06-30T16:12:11.791381 - ENG-001
+2025-06-30 16:39:42,334 - WARNING - Duplicate record removed: 2025-06-30T16:18:52.526353 - ENG-005
+2025-06-30 16:39:42,334 - WARNING - Duplicate record removed: 2025-06-30T16:18:52.526353 - ENG-005
+2025-06-30 16:39:42,334 - WARNING - Duplicate record removed: 2025-06-30T16:20:47.138682 - ENG-004
+2025-06-30 16:39:42,334 - WARNING - Duplicate record removed: 2025-06-30T16:17:51.234356 - ENG-002
+2025-06-30 16:39:42,334 - WARNING - Duplicate record removed: 2025-06-30T16:20:09.239516 - ENG-005
+2025-06-30 16:39:42,334 - WARNING - Duplicate record removed: 2025-06-30T16:21:29.396452 - ENG-004
+2025-06-30 16:39:42,335 - WARNING - Duplicate record removed: 2025-06-30T16:30:50.877281 - ENG-002
+2025-06-30 16:39:42,335 - WARNING - Duplicate record removed: 2025-06-30T16:21:39.168145 - ENG-003
+2025-06-30 16:39:42,335 - WARNING - Duplicate record removed: 2025-06-30T16:37:21.257013 - ENG-004
+2025-06-30 16:39:42,336 - WARNING - Duplicate record removed: 2025-06-30T16:44:05.729769 - ENG-001
+2025-06-30 16:39:42,336 - WARNING - Duplicate record removed: 2025-06-30T16:20:57.289652 - ENG-004
+2025-06-30 16:39:42,336 - WARNING - Duplicate record removed: 2025-06-30T16:27:42.182246 - ENG-004
+2025-06-30 16:39:42,336 - WARNING - Duplicate record removed: 2025-06-30T16:37:34.531063 - ENG-002
+2025-06-30 16:39:42,337 - WARNING - Duplicate record removed: 2025-06-30T16:27:26.925668 - ENG-005
+2025-06-30 16:39:42,337 - WARNING - Duplicate record removed: 2025-06-30T16:36:34.243633 - ENG-005
+2025-06-30 16:39:42,337 - WARNING - Duplicate record removed: 2025-06-30T16:47:48.949586 - ENG-005
+2025-06-30 16:39:42,337 - WARNING - Duplicate record removed: 2025-06-30T16:33:39.652773 - ENG-005
+2025-06-30 16:39:42,337 - WARNING - Duplicate record removed: 2025-06-30T16:58:24.830847 - ENG-005
+2025-06-30 16:39:42,337 - WARNING - Duplicate record removed: 2025-06-30T17:08:20.370772 - ENG-004
+2025-06-30 16:39:42,337 - WARNING - Duplicate record removed: 2025-06-30T16:47:44.264863 - ENG-005
+2025-06-30 16:39:42,338 - WARNING - Duplicate record removed: 2025-06-30T17:21:41.514100 - ENG-002
+2025-06-30 16:39:42,338 - WARNING - Duplicate record removed: 2025-06-30T17:01:02.190465 - ENG-005
+2025-06-30 16:39:42,338 - INFO - Removed 23 duplicate records
+2025-06-30 16:39:42,358 - INFO - Successfully wrote 977 unique records to data/telemetry_clean_enhanced.csv
+2025-06-30 16:39:42,359 - INFO - ==================================================
+2025-06-30 16:39:42,359 - INFO - PROCESSING SUMMARY
+2025-06-30 16:39:42,359 - INFO - ==================================================
+2025-06-30 16:39:42,359 - INFO - Total records processed: 1000
+2025-06-30 16:39:42,359 - INFO - Valid records: 1000
+2025-06-30 16:39:42,359 - INFO - Dropped records: 0
+2025-06-30 16:39:42,359 - INFO - Corrected records: 16
+2025-06-30 16:39:42,360 - INFO - Duplicate records removed: 23
+2025-06-30 16:39:42,360 - INFO - Parsing errors: 0
+2025-06-30 16:39:42,360 - INFO - Success rate: 100.0%
+2025-06-30 16:39:42,360 - INFO - Final output rate: 97.7% (977 unique records)
+2025-06-30 16:41:28,203 - INFO - Starting telemetry data processing...
+2025-06-30 16:41:28,204 - INFO - Output file: data/telemetry_clean.csv
+2025-06-30 16:41:28,204 - WARNING - Corrected negative pressure: -31.84325085653339 → 31.84325085653339
+2025-06-30 16:41:28,204 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:41:28,204 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:41:28,205 - WARNING - Corrected negative pressure: -8.037233502692324 → 8.037233502692324
+2025-06-30 16:41:28,205 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:41:28,205 - WARNING - Corrected negative pressure: -37.313342123665635 → 37.313342123665635
+2025-06-30 16:41:28,205 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:41:28,206 - WARNING - Corrected negative pressure: -3.4580700620793365 → 3.4580700620793365
+2025-06-30 16:41:28,206 - WARNING - Extremely high temperature detected: 7471.129454701635
+2025-06-30 16:41:28,206 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:41:28,207 - WARNING - Corrected negative pressure: -40.74594430946785 → 40.74594430946785
+2025-06-30 16:41:28,207 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:41:28,207 - WARNING - Corrected negative pressure: -20.06563587623843 → 20.06563587623843
+2025-06-30 16:41:28,207 - WARNING - Corrected negative pressure: -39.84525733384974 → 39.84525733384974
+2025-06-30 16:41:28,208 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:41:28,208 - WARNING - Corrected negative pressure: -9.148074984574563 → 9.148074984574563
+2025-06-30 16:41:28,209 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:41:28,209 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T16:41:38.195677 - ENG-005
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T16:52:12.763922 - ENG-004
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T16:45:51.449665 - ENG-003
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T16:51:46.920312 - ENG-004
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T16:53:07.535751 - ENG-003
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T16:57:10.913311 - ENG-005
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T17:07:33.251886 - ENG-005
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T17:07:03.119453 - ENG-005
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T17:15:06.918638 - ENG-002
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T16:51:21.328164 - ENG-002
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T16:56:29.007242 - ENG-005
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T17:18:10.392456 - ENG-003
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T17:07:15.668488 - ENG-004
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T17:10:02.810204 - ENG-005
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T17:35:45.053224 - ENG-002
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T17:21:27.150879 - ENG-003
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T17:32:52.409982 - ENG-001
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T17:27:28.308581 - ENG-001
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T17:50:19.212558 - ENG-005
+2025-06-30 16:41:28,209 - WARNING - Duplicate record removed: 2025-06-30T17:52:57.280365 - ENG-003
+2025-06-30 16:41:28,210 - WARNING - Duplicate record removed: 2025-06-30T17:58:09.024513 - ENG-001
+2025-06-30 16:41:28,210 - INFO - Removed 21 duplicate records
+2025-06-30 16:41:28,213 - INFO - Successfully wrote 979 unique records to data/telemetry_clean.csv
+2025-06-30 16:41:28,214 - INFO - ==================================================
+2025-06-30 16:41:28,214 - INFO - PROCESSING SUMMARY
+2025-06-30 16:41:28,214 - INFO - ==================================================
+2025-06-30 16:41:28,214 - INFO - Total records processed: 1000
+2025-06-30 16:41:28,214 - INFO - Valid records: 1000
+2025-06-30 16:41:28,214 - INFO - Dropped records: 0
+2025-06-30 16:41:28,214 - INFO - Corrected records: 17
+2025-06-30 16:41:28,214 - INFO - Duplicate records removed: 21
+2025-06-30 16:41:28,214 - INFO - Parsing errors: 0
+2025-06-30 16:41:28,214 - INFO - Success rate: 100.0%
+2025-06-30 16:41:28,214 - INFO - Final output rate: 97.9% (979 unique records)
