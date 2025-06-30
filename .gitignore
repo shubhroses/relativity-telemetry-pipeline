@@ -10,7 +10,7 @@ logs/
 errors.log
 
 # Data files (comment out if you want to commit sample data)
-data/*.csv
+# data/*.csv
 data/*.json
 
 # Python
