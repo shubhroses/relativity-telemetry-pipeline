@@ -1,0 +1,55 @@
+{
+  "name": "telemetry-csv-to-redshift",
+  "sourceId": "TO_BE_FILLED",
+  "destinationId": "TO_BE_FILLED", 
+  "syncCatalog": {
+    "streams": [
+      {
+        "stream": {
+          "name": "telemetry_data",
+          "namespace": null,
+          "jsonSchema": {
+            "type": "object",
+            "properties": {
+              "timestamp": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "engine_id": {
+                "type": "string"
+              },
+              "chamber_pressure": {
+                "type": "number"
+              },
+              "fuel_flow": {
+                "type": "number"
+              },
+              "temperature": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "config": {
+          "syncMode": "full_refresh",
+          "destinationSyncMode": "overwrite",
+          "selected": true,
+          "aliasName": "telemetry_data"
+        }
+      }
+    ]
+  },
+  "schedule": {
+    "scheduleType": "manual"
+  },
+  "status": "active",
+  "namespaceDefinition": "destination",
+  "namespaceFormat": "${SOURCE_NAMESPACE}",
+  "prefix": "",
+  "notes": {
+    "description": "Daily sync of telemetry data from CSV to Redshift",
+    "sync_mode": "full_refresh_overwrite",
+    "frequency": "manual (can be changed to daily)",
+    "target_table": "telemetry_raw.telemetry_data"
+  }
+} 

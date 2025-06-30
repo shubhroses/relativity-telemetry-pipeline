@@ -43,6 +43,9 @@ Thumbs.db
 *.swp
 *.swo
 
-# Airbyte local state
+# Airbyte local state and sensitive configs
 airbyte/state/
-airbyte/logs/ 
+airbyte/logs/
+airbyte/*_config_actual.json
+airbyte/workspaces/
+airbyte/.env* 
