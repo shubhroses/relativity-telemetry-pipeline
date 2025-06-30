@@ -171,3 +171,34 @@
 2025-06-30 15:43:12,206 - INFO - Corrected records: 19
 2025-06-30 15:43:12,206 - INFO - Parsing errors: 0
 2025-06-30 15:43:12,206 - INFO - Success rate: 100.0%
+2025-06-30 16:12:26,166 - INFO - Starting telemetry data processing...
+2025-06-30 16:12:26,167 - INFO - Output file: data/telemetry_clean.csv
+2025-06-30 16:12:26,167 - WARNING - Corrected negative pressure: -47.763995873230435 → 47.763995873230435
+2025-06-30 16:12:26,167 - WARNING - Extremely high temperature detected: 6266.771136589357
+2025-06-30 16:12:26,168 - WARNING - Corrected negative pressure: -1.4100431282426626 → 1.4100431282426626
+2025-06-30 16:12:26,168 - WARNING - Corrected negative pressure: -7.212103838085902 → 7.212103838085902
+2025-06-30 16:12:26,168 - WARNING - Corrected negative pressure: -25.385429776861674 → 25.385429776861674
+2025-06-30 16:12:26,168 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:12:26,169 - WARNING - Corrected negative pressure: -31.912723963723458 → 31.912723963723458
+2025-06-30 16:12:26,169 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:12:26,169 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:12:26,169 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:12:26,169 - WARNING - Corrected negative pressure: -22.79486141462398 → 22.79486141462398
+2025-06-30 16:12:26,170 - WARNING - Corrected negative pressure: -41.861320532334986 → 41.861320532334986
+2025-06-30 16:12:26,170 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:12:26,170 - WARNING - Corrected negative pressure: -31.801246817355675 → 31.801246817355675
+2025-06-30 16:12:26,170 - WARNING - Corrected negative pressure: -46.04631769440597 → 46.04631769440597
+2025-06-30 16:12:26,170 - WARNING - Corrected negative pressure: -25.00913224103462 → 25.00913224103462
+2025-06-30 16:12:26,171 - WARNING - Extremely high temperature detected: 7090.584022175943
+2025-06-30 16:12:26,171 - WARNING - Corrected zero fuel flow to 0.1 kg/s
+2025-06-30 16:12:26,171 - WARNING - Extremely high temperature detected: 6924.491038270623
+2025-06-30 16:12:26,175 - INFO - Successfully wrote 1000 records to data/telemetry_clean.csv
+2025-06-30 16:12:26,175 - INFO - ==================================================
+2025-06-30 16:12:26,176 - INFO - PROCESSING SUMMARY
+2025-06-30 16:12:26,176 - INFO - ==================================================
+2025-06-30 16:12:26,176 - INFO - Total records processed: 1000
+2025-06-30 16:12:26,176 - INFO - Valid records: 1000
+2025-06-30 16:12:26,176 - INFO - Dropped records: 0
+2025-06-30 16:12:26,176 - INFO - Corrected records: 16
+2025-06-30 16:12:26,176 - INFO - Parsing errors: 0
+2025-06-30 16:12:26,176 - INFO - Success rate: 100.0%
