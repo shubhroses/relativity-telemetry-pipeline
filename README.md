@@ -135,7 +135,7 @@ This project directly demonstrates capabilities for the **Data Engineer II posit
 
 ## 📞 Contact
 
-**Portfolio Project by**: [Your Name]  
+**Portfolio Project by**: Shubhrose Singh 
 **Target Role**: Data Engineer II at Relativity Space  
 
 ---
