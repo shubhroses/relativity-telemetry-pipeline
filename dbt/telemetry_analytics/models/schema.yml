@@ -1,0 +1,278 @@
+version: 2
+
+models:
+  # =====================================
+  # STAGING MODELS
+  # =====================================
+  - name: stg_telemetry_readings
+    description: "Staging model that cleans and standardizes raw Airbyte telemetry data"
+    columns:
+      - name: _airbyte_raw_id
+        description: "Unique identifier from Airbyte for data lineage"
+        tests:
+          - unique
+          - not_null
+          
+      - name: engine_id
+        description: "Standardized engine identifier (ENG-001 through ENG-005)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['ENG-001', 'ENG-002', 'ENG-003', 'ENG-004', 'ENG-005']
+              
+      - name: reading_timestamp
+        description: "Timestamp when telemetry reading was captured"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "reading_timestamp <= current_timestamp"
+              
+      - name: chamber_pressure_psi
+        description: "Engine chamber pressure in PSI"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "chamber_pressure_psi > 0"
+              
+      - name: fuel_flow_kg_per_sec
+        description: "Fuel flow rate in kg/s"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "fuel_flow_kg_per_sec > 0"
+              
+      - name: temperature_fahrenheit
+        description: "Engine temperature in Fahrenheit"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "temperature_fahrenheit > 32"
+              
+      - name: fuel_efficiency_ratio
+        description: "Calculated fuel efficiency (fuel_flow / chamber_pressure)"
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "fuel_efficiency_ratio IS NULL OR fuel_efficiency_ratio > 0"
+              
+      - name: performance_score
+        description: "Composite performance score (0-100)"
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "performance_score >= 0 AND performance_score <= 100"
+              
+      - name: is_anomaly
+        description: "Boolean flag indicating if reading is anomalous"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [true, false]
+
+  # =====================================
+  # CORE MODELS  
+  # =====================================
+  - name: fact_telemetry_readings
+    description: "Core fact table containing telemetry measurements with dimension keys"
+    tests:
+      - dbt_utils.expression_is_true:
+          expression: "reading_key > 0"
+          
+    columns:
+      - name: reading_key
+        description: "Surrogate key for the fact record"
+        tests:
+          - unique
+          - not_null
+          
+      - name: engine_key
+        description: "Foreign key to dim_engines"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_telemetry_readings')
+              field: engine_id
+              # Note: This is a simplified test since we're referencing existing tables
+              
+      - name: time_key
+        description: "Foreign key to dim_time"
+        tests:
+          - not_null
+          
+      - name: airbyte_raw_id
+        description: "Degenerate dimension - Airbyte source ID"
+        tests:
+          - not_null
+          
+      - name: chamber_pressure_psi
+        description: "Chamber pressure measurement in PSI"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "chamber_pressure_psi > 0"
+              
+      - name: fuel_flow_kg_per_sec
+        description: "Fuel flow measurement in kg/s"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "fuel_flow_kg_per_sec > 0"
+              
+      - name: temperature_fahrenheit
+        description: "Temperature measurement in Fahrenheit"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "temperature_fahrenheit > 32"
+              
+      - name: performance_score
+        description: "Calculated performance score (0-100)"
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "performance_score IS NULL OR (performance_score >= 0 AND performance_score <= 100)"
+
+  # =====================================
+  # MARTS MODELS
+  # =====================================
+  - name: engine_performance_summary
+    description: "Business intelligence mart providing engine performance KPIs and rankings"
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - engine_id
+            
+    columns:
+      - name: engine_id
+        description: "Engine identifier"
+        tests:
+          - unique
+          - not_null
+          
+      - name: engine_name
+        description: "Human-readable engine name"
+        tests:
+          - not_null
+          
+      - name: total_readings
+        description: "Total number of telemetry readings for this engine"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "total_readings > 0"
+              
+      - name: avg_performance_score
+        description: "Average performance score for the engine"
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "avg_performance_score >= 0 AND avg_performance_score <= 100"
+              
+      - name: anomaly_rate_percent
+        description: "Percentage of readings that are anomalous"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "anomaly_rate_percent >= 0 AND anomaly_rate_percent <= 100"
+              
+      - name: health_status
+        description: "Overall health status categorization"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['EXCELLENT', 'GOOD', 'FAIR', 'NEEDS_ATTENTION']
+              
+      - name: performance_rank
+        description: "Ranking of engine by performance score"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "performance_rank > 0"
+              
+      - name: pressure_utilization_percent
+        description: "Average pressure as percentage of design maximum"
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "pressure_utilization_percent >= 0 AND pressure_utilization_percent <= 200"
+
+  - name: daily_anomaly_trends
+    description: "Time-based analytics mart showing daily anomaly patterns and trends"
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - date_actual
+            
+    columns:
+      - name: date_actual
+        description: "Date of the aggregated metrics"
+        tests:
+          - unique
+          - not_null
+          
+      - name: total_readings
+        description: "Total readings for the day"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "total_readings > 0"
+              
+      - name: daily_anomaly_rate_percent
+        description: "Percentage of anomalous readings for the day"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "daily_anomaly_rate_percent >= 0 AND daily_anomaly_rate_percent <= 100"
+              
+      - name: avg_daily_performance_score
+        description: "Average performance score for the day"
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "avg_daily_performance_score >= 0 AND avg_daily_performance_score <= 100"
+              
+      - name: anomaly_trend
+        description: "Trend direction for anomaly rates"
+        tests:
+          - accepted_values:
+              values: ['IMPROVING', 'STABLE', 'DETERIORATING']
+              
+      - name: performance_trend
+        description: "Trend direction for performance scores"
+        tests:
+          - accepted_values:
+              values: ['IMPROVING', 'STABLE', 'DETERIORATING']
+              
+      - name: alert_flag
+        description: "Alert flag for operational attention"
+        tests:
+          - accepted_values:
+              values: ['HIGH_ANOMALY_ALERT', 'CRITICAL_PHASE_ALERT', 'RAPID_DETERIORATION_ALERT']
+              quote: false  # Allow NULL values
+              
+      - name: active_engines
+        description: "Number of engines active on this date"
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "active_engines > 0 AND active_engines <= 5"
+
+# =====================================
+# CUSTOM TESTS
+# =====================================
+tests:
+  - name: fact_table_grain_test
+    description: "Ensure fact table has proper grain - one record per reading"
+    sql: |
+      SELECT airbyte_raw_id, COUNT(*)
+      FROM {{ ref('fact_telemetry_readings') }}
+      GROUP BY airbyte_raw_id
+      HAVING COUNT(*) > 1
+      
+  - name: anomaly_logic_test
+    description: "Validate anomaly detection logic consistency"
+    sql: |
+      SELECT *
+      FROM {{ ref('stg_telemetry_readings') }}
+      WHERE is_anomaly = TRUE AND anomaly_type IS NULL
+      
+  - name: performance_score_logic_test
+    description: "Validate performance score calculation"
+    sql: |
+      SELECT *
+      FROM {{ ref('stg_telemetry_readings') }}
+      WHERE performance_score < 0 OR performance_score > 100 

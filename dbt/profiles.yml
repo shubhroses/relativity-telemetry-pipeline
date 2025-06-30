@@ -1,0 +1,28 @@
+telemetry_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: redshift
+      host: telemetry-demo.484907493448.us-east-2.redshift-serverless.amazonaws.com
+      port: 5439
+      user: admin
+      password: DUYKSxsvty822+.
+      dbname: dev
+      schema: telemetry_clean
+      threads: 4
+      keepalives_idle: 0
+      search_path: public
+      sslmode: require
+      
+    prod:
+      type: redshift
+      host: telemetry-demo.484907493448.us-east-2.redshift-serverless.amazonaws.com
+      port: 5439
+      user: admin
+      password: DUYKSxsvty822+.
+      dbname: dev
+      schema: telemetry_clean
+      threads: 8
+      keepalives_idle: 0
+      search_path: public
+      sslmode: require 
