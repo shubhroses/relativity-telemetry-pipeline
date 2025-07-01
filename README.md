@@ -141,3 +141,7 @@ This project directly demonstrates capabilities for the **Data Engineer II posit
 ---
 
 *Building the future of space exploration, one data pipeline at a time* 🚀🔴
+
+## DBT Lineage
+
+![DBT Lineage](dbt/telemetry_analytics/lineage.png)
