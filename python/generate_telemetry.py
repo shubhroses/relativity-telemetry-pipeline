@@ -187,19 +187,21 @@ class TelemetryGenerator:
         records = []
         duplicates_to_add = []
         
-        start_time = datetime.now()
+        # Start with current time and progress chronologically
+        current_timestamp = datetime.now()
         
         for i in range(num_records):
-            # Realistic time progression (readings every 1-5 seconds)
-            time_offset = timedelta(seconds=random.uniform(1, 5) * i)
-            timestamp = start_time + time_offset
+            # Realistic time progression - each reading 1-5 seconds after the previous
+            if i > 0:  # Skip time advancement for first record
+                time_interval = random.uniform(1, 5)  # Random interval between readings
+                current_timestamp += timedelta(seconds=time_interval)
             
             # Select engine (balanced operational status)
             engine_weights = [0.2, 0.2, 0.2, 0.2, 0.2]  # Equal distribution across all engines
             engine_id = random.choices(list(self.engines.keys()), weights=engine_weights)[0]
             
             # Generate base reading
-            reading = self.generate_base_reading(engine_id, timestamp)
+            reading = self.generate_base_reading(engine_id, current_timestamp)
             
             # Inject anomalies
             reading = self.inject_anomalies(reading)
@@ -213,8 +215,8 @@ class TelemetryGenerator:
         # Add duplicates to simulate data pipeline issues
         records.extend(duplicates_to_add)
         
-        # Shuffle to make duplicates realistic
-        random.shuffle(records)
+        # Note: Records maintain chronological order for easier analysis
+        # In production, data may arrive out-of-order due to network conditions
         
         return records
 
