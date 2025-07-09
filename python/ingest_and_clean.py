@@ -2,11 +2,48 @@
 """
 Telemetry Data Ingestion and Cleaning Pipeline
 
-Reads raw telemetry JSON data, performs validation and cleaning:
-- Drops records missing required fields
-- Corrects simple issues (e.g., negative pressure → absolute value)
-- Logs warnings and errors
-- Outputs cleaned data to CSV format
+Processes raw rocket engine telemetry data, performing validation, cleaning, and 
+deduplication before outputting clean CSV data for analysis.
+
+USAGE:
+    python ingest_and_clean.py [options]
+    
+    Examples:
+        # Process from stdin to default output
+        python generate_telemetry.py 1000 | python ingest_and_clean.py
+        
+        # Process specific input file
+        python ingest_and_clean.py -i raw_data.jsonl -o clean_data.csv
+        
+        # Process with custom output location
+        cat telemetry.jsonl | python ingest_and_clean.py -o results/cleaned.csv
+
+INPUT:
+    - JSON Lines format (one JSON object per line)
+    - Expected fields: timestamp, engine_id, chamber_pressure, fuel_flow, temperature
+    - Reads from stdin by default or specified file with -i
+
+OUTPUT:
+    - CSV format with cleaned and validated data
+    - Duplicate records removed (based on timestamp + engine_id)
+    - Detailed processing logs to stderr and errors.log
+
+CLEANING OPERATIONS:
+    - Validates required fields (timestamp, engine_id)
+    - Corrects negative chamber pressure → absolute value
+    - Rejects temperatures below absolute zero (-273.15°C)
+    - Fixes zero fuel flow → 0.1 kg/s minimum
+    - Validates timestamp format (ISO format)
+    - Removes duplicate records
+    - Logs all corrections and errors
+
+COMMAND LINE OPTIONS:
+    -i, --input FILE     Input JSON Lines file (default: stdin)
+    -o, --output FILE    Output CSV file (default: data/telemetry_clean.csv)
+
+PURPOSE:
+    Prepare raw telemetry data for analysis by cleaning common data quality issues
+    while maintaining data integrity and providing detailed processing statistics.
 """
 
 import json

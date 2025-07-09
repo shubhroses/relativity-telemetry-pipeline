@@ -92,8 +92,23 @@ models:
               field: engine_id
               # Note: This is a simplified test since we're referencing existing tables
               
+      - name: pressure_metric_key
+        description: "Foreign key to dim_telemetry_metrics for chamber pressure metric"
+        tests:
+          - not_null
+          
+      - name: fuel_flow_metric_key
+        description: "Foreign key to dim_telemetry_metrics for fuel flow metric"
+        tests:
+          - not_null
+          
+      - name: temperature_metric_key
+        description: "Foreign key to dim_telemetry_metrics for temperature metric"
+        tests:
+          - not_null
+          
       - name: time_key
-        description: "Foreign key to dim_time"
+        description: "Calculated time key in YYYYMMDDHH format for time-based analysis"
         tests:
           - not_null
           
@@ -128,6 +143,20 @@ models:
         tests:
           - dbt_utils.expression_is_true:
               expression: "performance_score IS NULL OR (performance_score >= 0 AND performance_score <= 100)"
+              
+      - name: is_anomaly
+        description: "Boolean flag indicating if reading is anomalous (original staging logic)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [true, false]
+              
+      - name: is_out_of_normal_range
+        description: "Enhanced anomaly detection using metric dimension normal range thresholds"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [true, false]
 
   # =====================================
   # MARTS MODELS

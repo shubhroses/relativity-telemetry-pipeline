@@ -2,11 +2,32 @@
 """
 Rocket Engine Telemetry Data Generator
 
-Generates realistic rocket engine telemetry data with configurable anomalies:
-- Normal readings with realistic sensor noise
-- Intentional anomalies for testing data quality pipelines
-- Multiple engine types with different performance characteristics
-- Simulates real-world data quality issues for demonstration
+Generates realistic rocket engine telemetry data for testing data quality pipelines.
+
+USAGE:
+    python generate_telemetry.py [num_records]
+    
+    Examples:
+        python generate_telemetry.py 100        # Generate 100 records
+        python generate_telemetry.py 1000 > data.jsonl  # Save 1000 records to file
+
+OUTPUT:
+    - JSON Lines format (one JSON object per line) to stdout
+    - Each record contains: timestamp, engine_id, chamber_pressure, fuel_flow, temperature
+    - Intentional data quality issues included for pipeline testing
+
+FEATURES:
+    - 5 simulated Terran R engines with different performance characteristics
+    - Realistic sensor noise and physics-based correlations
+    - Configurable anomaly injection (3-5% rate):
+        * Missing sensor readings (simulates sensor failures)
+        * Out-of-range values (simulates sensor malfunctions)
+        * Duplicate records (simulates data pipeline issues)
+        * Critical engine failures (pressure spikes, thermal runaway, etc.)
+    
+PURPOSE:
+    Test data quality validation, anomaly detection, and data pipeline robustness
+    with realistic aerospace telemetry scenarios.
 """
 
 import json

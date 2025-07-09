@@ -1,10 +1,28 @@
 /*
-    Core fact table for telemetry readings
+    Fact Table: Telemetry Readings (Star Schema Core)
     
-    This model:
-    - Transforms staging data into star schema fact table
-    - Looks up dimension keys from dimension tables
-    - Applies business logic and calculations
+    Transforms staging telemetry data into a dimensional fact table for analytics
+    and reporting with proper foreign key relationships.
+    
+    SOURCE: stg_telemetry_readings (staging layer)
+    
+    STAR SCHEMA DESIGN:
+    - Foreign Keys: engine_key (→ dim_engines), metric foreign keys (→ dim_telemetry_metrics)
+    - Calculated Keys: time_key (YYYYMMDDHH format for time-based analysis)
+    - Measures: pressure, fuel_flow, temperature, efficiency_ratio, performance_score
+    - Degenerate Dimensions: airbyte_raw_id, engine_id, reading_timestamp
+    
+    KEY TRANSFORMATIONS:
+    - Dimension Lookups: Maps engine_id to engine_key via dim_engines
+    - Metric Lookups: Maps each telemetry metric to dim_telemetry_metrics
+    - Time Key Generation: Creates hourly time keys (YYYYMMDDHH format)
+    - Health Classification: Maps performance_score to categorical status:
+        * 80+ = EXCELLENT | 60-79 = GOOD | 40-59 = FAIR | 20-39 = POOR | <20 = CRITICAL
+    - Surrogate Keys: Generates unique reading_key for each record
+    
+    MATERIALIZATION: Table with ANALYZE post-hook for query performance
+    
+    USAGE: Powers telemetry dashboards, engine performance analytics, and anomaly detection
 */
 
 {{ config(
@@ -25,10 +43,26 @@ engine_dim AS (
     WHERE is_current = TRUE
 ),
 
+metrics_dim AS (
+    SELECT 
+        metric_key,
+        metric_name,
+        metric_category,
+        unit_of_measure,
+        normal_min_value,
+        normal_max_value
+    FROM telemetry_clean.dim_telemetry_metrics
+),
+
 fact_data AS (
     SELECT 
         -- Foreign keys (dimension references)
         COALESCE(e.engine_key, -1) AS engine_key,
+        
+        -- Metric dimension foreign keys
+        COALESCE(mp.metric_key, -1) AS pressure_metric_key,
+        COALESCE(mf.metric_key, -1) AS fuel_flow_metric_key,
+        COALESCE(mt.metric_key, -1) AS temperature_metric_key,
         
         -- Generate simple time_key from timestamp (YYYYMMDDHH format - reduced precision)
         CAST(
@@ -57,6 +91,14 @@ fact_data AS (
         s.is_anomaly,
         s.anomaly_type,
         
+        -- Enhanced anomaly detection using metric dimension thresholds
+        CASE 
+            WHEN s.chamber_pressure_psi < mp.normal_min_value OR s.chamber_pressure_psi > mp.normal_max_value THEN TRUE
+            WHEN s.fuel_flow_kg_per_sec < mf.normal_min_value OR s.fuel_flow_kg_per_sec > mf.normal_max_value THEN TRUE
+            WHEN s.temperature_fahrenheit < mt.normal_min_value OR s.temperature_fahrenheit > mt.normal_max_value THEN TRUE
+            ELSE FALSE
+        END AS is_out_of_normal_range,
+        
         -- Health status classification
         CASE 
             WHEN s.performance_score >= 80 THEN 'EXCELLENT'
@@ -74,12 +116,21 @@ fact_data AS (
     FROM staging_readings s
     LEFT JOIN engine_dim e 
         ON s.engine_id = e.engine_id
+    LEFT JOIN metrics_dim mp 
+        ON mp.metric_name = 'chamber_pressure'
+    LEFT JOIN metrics_dim mf 
+        ON mf.metric_name = 'fuel_flow'
+    LEFT JOIN metrics_dim mt 
+        ON mt.metric_name = 'temperature'
 )
 
 SELECT 
     -- Generate surrogate key using row_number
     ROW_NUMBER() OVER (ORDER BY time_key, engine_key) AS reading_key,
     engine_key,
+    pressure_metric_key,
+    fuel_flow_metric_key,
+    temperature_metric_key,
     time_key,
     airbyte_raw_id,
     reading_timestamp,
@@ -90,6 +141,7 @@ SELECT
     fuel_efficiency_ratio,
     performance_score,
     is_anomaly,
+    is_out_of_normal_range,
     anomaly_type,
     health_status,
     source_system,

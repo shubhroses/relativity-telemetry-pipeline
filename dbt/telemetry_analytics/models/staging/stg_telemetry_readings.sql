@@ -1,10 +1,18 @@
 /*
-    Staging model for raw telemetry readings from Airbyte
+    Staging Model: Rocket Engine Telemetry Readings
     
-    This model:
-    - Cleans and standardizes raw Airbyte data
-    - Adds data quality flags
-    - Prepares data for star schema transformation
+    Transforms raw Airbyte telemetry data into clean, standardized records for analytics.
+    
+    SOURCE: telemetry_raw.telemetry_data (Airbyte ingestion)
+    
+    TRANSFORMATIONS:
+    - Standardizes engine_id format and numeric precision (8,3)
+    - Calculates fuel_efficiency_ratio and performance_score (0-100 weighted composite)
+    - Flags anomalies outside operational parameters:
+        * Pressure: 80-400 psi | Fuel: 15-220 kg/s | Temp: 1200-4500°F
+    - Preserves Airbyte metadata and adds processing timestamps
+    
+    OUTPUT: Clean records for star schema modeling and anomaly detection dashboards
 */
 
 {{ config(

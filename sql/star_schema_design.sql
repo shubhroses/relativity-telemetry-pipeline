@@ -82,51 +82,6 @@ DISTSTYLE ALL  -- Small dimension, replicate to all nodes
 SORTKEY (engine_id);
 
 -- ==================================================
--- DIMENSION TABLE: Time/Date Hierarchy
--- ==================================================
-
-CREATE TABLE telemetry_clean.dim_time (
-    -- Surrogate Key  
-    time_key INTEGER PRIMARY KEY,
-    
-    -- Full Timestamp
-    full_timestamp TIMESTAMP NOT NULL,
-    
-    -- Date Hierarchy
-    date_actual DATE NOT NULL,
-    year_number INTEGER NOT NULL,
-    quarter_number INTEGER NOT NULL,
-    month_number INTEGER NOT NULL,
-    month_name VARCHAR(10) NOT NULL,
-    week_number INTEGER NOT NULL,
-    day_of_year INTEGER NOT NULL,
-    day_of_month INTEGER NOT NULL,
-    day_of_week INTEGER NOT NULL,
-    day_name VARCHAR(10) NOT NULL,
-    
-    -- Time Hierarchy
-    hour_24 INTEGER NOT NULL,
-    hour_12 INTEGER NOT NULL,
-    minute_number INTEGER NOT NULL,
-    second_number INTEGER NOT NULL,
-    am_pm VARCHAR(2) NOT NULL,
-    
-    -- Business Calendar
-    is_weekend BOOLEAN NOT NULL,
-    is_business_day BOOLEAN NOT NULL,
-    
-    -- Mission/Test Windows (Aerospace Context)
-    mission_day INTEGER,
-    test_phase VARCHAR(50),
-    operational_window VARCHAR(50), -- 'PRE_FLIGHT', 'IGNITION', 'BURN', 'SHUTDOWN'
-    
-    -- ETL Metadata
-    created_at TIMESTAMP DEFAULT GETDATE()
-)
-DISTSTYLE ALL  -- Small dimension, replicate to all nodes
-SORTKEY (time_key);
-
--- ==================================================
 -- DIMENSION TABLE: Telemetry Metrics Metadata
 -- ==================================================
 
@@ -189,9 +144,6 @@ COMMENT ON TABLE telemetry_clean.fact_telemetry_readings IS
 COMMENT ON TABLE telemetry_clean.dim_engines IS 
 'Engine dimension with technical specifications and SCD Type 2 support';
 
-COMMENT ON TABLE telemetry_clean.dim_time IS 
-'Time dimension with full date/time hierarchy and aerospace business calendar';
-
 COMMENT ON TABLE telemetry_clean.dim_telemetry_metrics IS 
 'Metadata dimension for telemetry metrics with quality rules and ranges';
 
@@ -210,21 +162,20 @@ FROM fact_telemetry_readings f
 JOIN dim_engines e ON f.engine_key = e.engine_key
 GROUP BY e.engine_id;
 
--- Q2: Time-based Anomaly Analysis  
+-- Q2: Time-based Anomaly Analysis (using reading_timestamp directly)
 SELECT 
-    t.date_actual,
-    t.hour_24,
+    DATE(f.reading_timestamp) as date_actual,
+    EXTRACT(HOUR FROM f.reading_timestamp) as hour_24,
     COUNT(CASE WHEN f.is_anomaly THEN 1 END) as anomaly_count,
     COUNT(*) as total_readings
 FROM fact_telemetry_readings f
-JOIN dim_time t ON f.time_key = t.time_key
-GROUP BY t.date_actual, t.hour_24
+GROUP BY DATE(f.reading_timestamp), EXTRACT(HOUR FROM f.reading_timestamp)
 ORDER BY anomaly_count DESC;
 
--- Q3: Multi-dimensional Analysis
+-- Q3: Multi-dimensional Analysis (simplified without time dimension)
 SELECT 
     e.engine_id,
-    t.operational_window,
+    DATE(f.reading_timestamp) as reading_date,
     m.metric_category,
     AVG(CASE WHEN m.metric_name = 'chamber_pressure' 
         THEN f.chamber_pressure_psi END) as avg_pressure,
@@ -232,7 +183,6 @@ SELECT
         THEN f.fuel_flow_kg_per_sec END) as avg_fuel_flow
 FROM fact_telemetry_readings f
 JOIN dim_engines e ON f.engine_key = e.engine_key  
-JOIN dim_time t ON f.time_key = t.time_key
 CROSS JOIN dim_telemetry_metrics m
-GROUP BY e.engine_id, t.operational_window, m.metric_category;
+GROUP BY e.engine_id, DATE(f.reading_timestamp), m.metric_category;
 */ 

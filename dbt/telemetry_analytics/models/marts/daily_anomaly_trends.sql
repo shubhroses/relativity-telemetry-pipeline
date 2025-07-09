@@ -1,10 +1,46 @@
 /*
-    Daily Anomaly Trends Mart
+    Daily Anomaly Trends Mart - Time-Series Analytics
     
-    This model provides:
-    - Daily aggregation of anomalies by type
-    - Trend analysis for operational monitoring
-    - Time-based patterns and seasonality detection
+    Transforms daily telemetry data into operational intelligence with trend analysis,
+    anomaly detection, and automated alerting for rocket engine monitoring.
+    
+    SOURCE: fact_telemetry_readings (enhanced with metric dimensions)
+    
+    BUSINESS PURPOSE:
+    - Operational dashboards showing daily performance trends
+    - Predictive maintenance through anomaly pattern detection  
+    - Automated alerting for critical operational conditions
+    - Historical performance analysis and benchmarking
+    
+    DATA TRANSFORMATIONS:
+    Daily Aggregation:
+    - Total readings and anomaly counts by date
+    - Anomaly rate percentages and breakdowns by type
+    - Performance score statistics (avg, min, max, stddev)
+    - Health status distribution across all engines
+    - Active engine counts and data freshness metrics
+    
+    Time-Series Analysis:
+    - 7-day moving averages for anomaly rates and performance scores
+    - Day-over-day and week-over-week change calculations
+    - Trend classification: IMPROVING, STABLE, DETERIORATING
+    - Ranking system for worst/best performance days
+    
+    ALERT LOGIC:
+    - HIGH_ANOMALY_ALERT: Daily anomaly rate > 25%
+    - CRITICAL_HEALTH_ALERT: Any readings in CRITICAL health status
+    - RAPID_DETERIORATION_ALERT: Day-over-day anomaly increase > 10%
+    
+    ANALYTICAL FEATURES:
+    - Weekend vs weekday pattern analysis
+    - Seasonal trend detection with moving averages
+    - Performance variance analysis (standard deviation)
+    - Multi-engine operational status tracking
+    
+    MATERIALIZATION: Table for fast dashboard queries and historical analysis
+    
+    USAGE: Powers operational monitoring dashboards, maintenance scheduling,
+           and performance trending reports for mission-critical rocket engines
 */
 
 {{ config(
@@ -130,4 +166,4 @@ final_analysis AS (
 )
 
 SELECT * FROM final_analysis
-ORDER BY date_actual DESC 
+ORDER BY date_actual DESC
