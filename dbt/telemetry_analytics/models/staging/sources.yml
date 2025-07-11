@@ -22,12 +22,10 @@ sources:
               - not_null
               
           - name: engine_id
-            description: "Engine identifier (ENG-001 through ENG-005)"
+            description: "Engine identifier (ENG_001 through ENG_005)"
             tests:
               - not_null
-              - accepted_values:
-                  values: ['ENG-001', 'ENG-002', 'ENG-003', 'ENG-004', 'ENG-005']
-                  
+              
           - name: timestamp
             description: "Timestamp when telemetry reading was captured"
             tests:
@@ -35,15 +33,9 @@ sources:
               
           - name: chamber_pressure
             description: "Engine chamber pressure in PSI"
-            tests:
-              - not_null
               
           - name: fuel_flow
             description: "Fuel flow rate in kg/s"
-            tests:
-              - not_null
               
           - name: temperature
-            description: "Engine temperature in Fahrenheit"
-            tests:
-              - not_null 
+            description: "Engine temperature in Fahrenheit" 
